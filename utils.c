@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/21 20:23:04 by rpandipe         ###   ########.fr       */
+/*   Created: 2024/03/21 20:21:51 by rpandipe          #+#    #+#             */
+/*   Updated: 2024/03/21 20:22:16 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+t_ps_list	*create_node (int n)
 {
-	t_ps_list	*a;
+	t_ps_list *node;
 
-	if (argc < 2)
-		return (0);
-	if (!check_input(argc, argv, &a))
-		return (0);
+	node = (t_ps_list *)malloc(sizeof(t_ps_list));
+	if (!node)
+		return (NULL);
+	node->n = n;
+	node->next = NULL;
+	node->prev = NULL;
+	return (node);
 }

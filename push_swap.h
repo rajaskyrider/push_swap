@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/20 19:25:48 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/03/21 20:22:57 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define PUSH_SWAP_H
 
 # include "./libft/libft.h"
+
+typedef	enum {
+    false,
+    true
+} bool;
 
 typedef struct psl_list
 {
@@ -33,5 +38,7 @@ void	rr(t_ps_list **a, t_ps_list **b);
 void	rra(t_ps_list **a);
 void	rrb(t_ps_list **b);
 void	rrr(t_ps_list **a, t_ps_list **b);
+bool	check_input(int count, char** str, t_ps_list **a);
+t_ps_list	*create_node (int n);
 
 #endif
