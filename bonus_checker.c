@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   bonus_checker.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 15:14:30 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/22 10:53:49 by rpandipe         ###   ########.fr       */
+/*   Created: 2024/03/22 14:45:22 by rpandipe          #+#    #+#             */
+/*   Updated: 2024/03/22 15:07:31 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_ps_list **lst)
+void	print_result(t_ps_list **a)
 {
-	int	temp;
-
-	if (*lst == NULL || (*lst)->next == NULL)
-		return ;
-	temp = (*lst)->n;
-	(*lst)->n = (*lst)->next->n;
-	(*lst)->next->n = temp;
-}
-
-void	sa(t_ps_list **a)
-{
-	swap(a);
-}
-
-void	sb(t_ps_list **b)
-{
-	swap(b);
-}
-
-void	ss(t_ps_list **a, t_ps_list **b)
-{
-	sa(a);
-	sb(b);
+	t_ps_list *temp;
+	
+	temp = *a;
+	while (temp)
+	{
+		ft_printf("%d\n", temp->n);
+		if (temp->next != NULL)
+			break ;
+		temp = temp->next;
+	}
 }

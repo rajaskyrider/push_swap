@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/21 20:22:57 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/03/22 15:08:00 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct psl_list
 }					t_ps_list;
 
 void	sa(t_ps_list **a);
-void	sb(t_ps_list *b);
+void	sb(t_ps_list **b);
 void	ss(t_ps_list **a, t_ps_list **b);
 void	pa(t_ps_list **a, t_ps_list **b);
 void	pb(t_ps_list **a, t_ps_list **b);
@@ -40,5 +40,6 @@ void	rrb(t_ps_list **b);
 void	rrr(t_ps_list **a, t_ps_list **b);
 bool	check_input(int count, char** str, t_ps_list **a);
 t_ps_list	*create_node (int n);
+void	print_result(t_ps_list **a);
 
 #endif
