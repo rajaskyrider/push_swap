@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/25 19:53:19 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/03/26 20:07:08 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 #include "handle_input.c"
 #include "utils.c"
+#include "utils_sort.c"
 #include "bonus_checker.c"
+#include "bubble_sort.c"
+#include "push.c"
+#include "swap.c"
+#include "rotate.c"
+#include "reverse_rotate.c"
 #include "./libft/libft.h"
 #include "./libft/ft_printf.h"
 #include "./libft/ft_printf.c"
@@ -50,28 +56,34 @@
 
 void	sorting_selector(t_ps_list **lst)
 {
-	int			s[3];
 	t_result	*result;
 
-	s[0] = bubble_sort(lst, &result, 0);
+	result = NULL;
+	bubble_sort(lst, &result);
+	print_result(result);
+	free_result(&result);
 }
 
 int	main(int argc, char **argv)
 {
 	t_ps_list	*a;
-	char *str[] = {"0", "1", "2", "3", NULL};
+	//char *str[] = {"0", "4", "3", "2", "1", NULL};
 
 	a = NULL;
-	argv = str;
-	argc = 2;
+	//argv = str;
+	//argc = 5;
 	if (argc < 2)
+	{
+		ft_printf("Error\n");
 		return (0);
+	}
 	if (!check_input(argc, argv, &a))
 	{
+		ft_printf("Error\n");
 		free_struct(&a);
 		return (0);
 	}
 	sorting_selector(&a);
-	print_result(&a);
+	//print_a(&a);
 	free_struct(&a);
 }

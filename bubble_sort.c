@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_checker.c                                    :+:      :+:    :+:   */
+/*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 14:45:22 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/26 19:55:31 by rpandipe         ###   ########.fr       */
+/*   Created: 2024/03/26 15:56:02 by rpandipe          #+#    #+#             */
+/*   Updated: 2024/03/26 19:59:03 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_a(t_ps_list **a)
+void	bubble_sort(t_ps_list **lst, t_result **result)
 {
-	t_ps_list	*temp;
+	t_ps_list	*a;
+	t_ps_list	*b;
+	int			id;
 
-	temp = *a;
-	while (temp)
+	id = 0;
+	a = copylist(lst);
+	b = NULL;
+	while (!issorted(&a))
 	{
-		ft_printf("%d\n", temp->n);
-		if (temp->next == NULL)
-			break ;
-		temp = temp->next;
+		while (a)
+		{
+			pb(&a, &b, result, id);
+			if (b->next && b->n < b->next->n)
+				sb(&b, result, id);
+		}
+		while (b)
+		{
+			pa(&a, &b, result, id);
+			if (a->next && a->n > a->next->n)
+				sa(&a, result, id);
+		}
 	}
-}
-
-void	print_result(t_result *result)
-{
-	int	id;
-
-	id = 0; // change with a function that find the best sorter
-	while (result)
-	{
-		if (result->id == id)
-			ft_printf("%s\n", result->op);
-		result = result->next;
-	}
+	free_struct(&a);
 }

@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/25 19:57:55 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/03/26 20:07:45 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,25 @@ typedef struct s_result
 	struct s_result	*next;
 }				t_result;
 
-void		sa(t_ps_list **a);
-void		sb(t_ps_list **b);
-void		ss(t_ps_list **a, t_ps_list **b);
-void		pa(t_ps_list **a, t_ps_list **b);
-void		pb(t_ps_list **a, t_ps_list **b);
-void		ra(t_ps_list **a);
-void		rb(t_ps_list **b);
-void		rr(t_ps_list **a, t_ps_list **b);
-void		rra(t_ps_list **a);
-void		rrb(t_ps_list **b);
-void		rrr(t_ps_list **a, t_ps_list **b);
+void		sa(t_ps_list **a, t_result **result, int id);
+void		sb(t_ps_list **b, t_result **result, int id);
+void		ss(t_ps_list **a, t_ps_list **b, t_result **result, int id);
+void		pa(t_ps_list **a, t_ps_list **b, t_result **result, int id);
+void		pb(t_ps_list **a, t_ps_list **b, t_result **result, int id);
+void		ra(t_ps_list **a, t_result **result, int id);
+void		rb(t_ps_list **b, t_result **result, int id);
+void		rr(t_ps_list **a, t_ps_list **b, t_result **result, int id);
+void		rra(t_ps_list **a, t_result **result, int id);
+void		rrb(t_ps_list **b, t_result **result, int id);
+void		rrr(t_ps_list **a, t_ps_list **b, t_result **result, int id);
 t_bool		check_input(int count, char **str, t_ps_list **a);
 t_ps_list	*create_node(int n);
-void		print_result(t_ps_list **a);
+void		print_result(t_result *result);
+void		print_a(t_ps_list **a);
 void		free_struct(t_ps_list **lst);
+void		free_result(t_result **lst);
+t_bool		issorted(t_ps_list **a);
+t_ps_list	*copylist(t_ps_list **a);
+void		addentry(t_result **result, char *op, int id);
 
 #endif

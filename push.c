@@ -6,32 +6,37 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:41:18 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/20 19:26:10 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/03/26 19:49:48 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_ps_list **destinationlist, t_ps_list **sourcelist)
+t_bool	push(t_ps_list **destinationlist, t_ps_list **sourcelist)
 {
 	t_ps_list	*temp;
 
 	if (*sourcelist == NULL)
-		return ;
+		return (false);
 	temp = *sourcelist;
-	temp->prev = NULL;
-	temp->next = *destinationlist;
-	(*destinationlist)->prev = temp;
-	(*destinationlist) = temp;
 	*sourcelist = (*sourcelist)->next;
+	if (*sourcelist)
+		(*sourcelist)->prev = NULL;
+	if (*destinationlist)
+		(*destinationlist)->prev = temp;
+	temp->next = *destinationlist;
+	(*destinationlist) = temp;
+	return (true);
 }
 
-void	pa(t_ps_list **a, t_ps_list **b)
+void	pa(t_ps_list **a, t_ps_list **b, t_result **result, int id)
 {
-	push(a, b);
+	if (push(a, b))
+		addentry(result, "pa", id);
 }
 
-void	pb(t_ps_list **a, t_ps_list **b)
+void	pb(t_ps_list **a, t_ps_list **b, t_result **result, int id)
 {
-	push(b, a);
+	if (push(b, a))
+		addentry(result, "pb", id);
 }

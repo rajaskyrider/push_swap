@@ -6,19 +6,19 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:02:21 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/20 19:26:50 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/03/26 19:16:25 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_ps_list **lst)
+t_bool	rotate(t_ps_list **lst)
 {
 	t_ps_list	*end;
 	t_ps_list	*temp;
 
 	if (!*lst || (*lst)->next == NULL)
-		return ;
+		return (false);
 	end = *lst;
 	temp = *lst;
 	while (end->next != NULL)
@@ -27,20 +27,23 @@ void	rotate(t_ps_list **lst)
 	end->next = temp;
 	temp->prev = end;
 	*lst = end;
+	return (true);
 }
 
-void	ra(t_ps_list **a)
+void	ra(t_ps_list **a, t_result **result, int id)
 {
-	rotate(a);
+	if (rotate(a))
+		addentry(result, "ra", id);
 }
 
-void	rb(t_ps_list **b)
+void	rb(t_ps_list **b, t_result **result, int id)
 {
-	rotate(b);
+	if (rotate(b))
+		addentry(result, "rb", id);
 }
 
-void	rr(t_ps_list **a, t_ps_list **b)
+void	rr(t_ps_list **a, t_ps_list **b, t_result **result, int id)
 {
-	ra(a);
-	rb(b);
+	if (rotate(a) && rotate(b))
+		addentry(result, "rr", id);
 }

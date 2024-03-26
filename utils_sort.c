@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_checker.c                                    :+:      :+:    :+:   */
+/*   utils_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 14:45:22 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/26 19:55:31 by rpandipe         ###   ########.fr       */
+/*   Created: 2024/03/26 18:47:18 by rpandipe          #+#    #+#             */
+/*   Updated: 2024/03/26 18:53:13 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_a(t_ps_list **a)
+t_result	*createentry(char *op, int id)
 {
-	t_ps_list	*temp;
+	t_result	*entry;
 
-	temp = *a;
-	while (temp)
-	{
-		ft_printf("%d\n", temp->n);
-		if (temp->next == NULL)
-			break ;
-		temp = temp->next;
-	}
+	entry = (t_result *)ft_calloc(1, sizeof(t_result));
+	if (!entry)
+		exit(0);
+	entry->id = id;
+	entry->op = op;
+	entry->next = NULL;
+	return (entry);
 }
 
-void	print_result(t_result *result)
+void	addentry(t_result **result, char *op, int id)
 {
-	int	id;
+	t_result	*lst;
 
-	id = 0; // change with a function that find the best sorter
-	while (result)
+	if (*result == NULL)
 	{
-		if (result->id == id)
-			ft_printf("%s\n", result->op);
-		result = result->next;
+		*result = createentry(op, id);
+		return ;
 	}
+	lst = *result;
+	while (lst->next)
+	{
+		lst = lst->next;
+	}
+	lst->next = createentry(op, id);
 }
