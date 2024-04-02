@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/26 20:07:08 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/03/26 20:25:30 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "handle_input.c"
 #include "utils.c"
 #include "utils_sort.c"
-#include "bonus_checker.c"
+#include "utils_print.c"
 #include "bubble_sort.c"
 #include "push.c"
 #include "swap.c"

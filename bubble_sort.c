@@ -6,11 +6,33 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 15:56:02 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/26 19:59:03 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/03/27 14:56:59 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	bubble_aux(t_ps_list **lst, t_result **result, int	id)
+{
+	t_ps_list	*a;
+
+	a = *lst;
+	if (a->next && (a->n > a->next->n))
+	{	
+		sa(&a, result, id);
+		if (a->next->next)
+		{
+			if (a->n > a->next->next->n)
+				rra(&a, result, id);
+			if (a->next->n > a->next->next->n)
+			{
+				ra(&a, result, id);
+				sa(&a, result, id);
+				rra(&a, result, id);
+			}
+		}
+	}
+}
 
 void	bubble_sort(t_ps_list **lst, t_result **result)
 {
@@ -21,6 +43,8 @@ void	bubble_sort(t_ps_list **lst, t_result **result)
 	id = 0;
 	a = copylist(lst);
 	b = NULL;
+	if (lstcount(a) < 4)
+		bubble_aux(&a, &result, id);
 	while (!issorted(&a))
 	{
 		while (a)
