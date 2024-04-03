@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 15:56:02 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/02 10:40:51 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/03 09:51:32 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	bubble_sort(t_ps_list **lst, t_result **result)
 	id = 0;
 	a = copylist(lst);
 	b = NULL;
-	if (ft_list_count(&a) < 4)
-		bubble_aux(&a, result, id);
+	//if (ft_list_count(&a) < 4)
+	//	bubble_aux(&a, result, id);
 	while (!issorted(&a))
 	{
 		while (a)

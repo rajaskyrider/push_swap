@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/02 16:36:56 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/03 16:58:59 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	sorting_selector(t_ps_list **lst)
 	result = NULL;
 	b = NULL;
 	//bubble_sort(lst, &result);
-	quick_sort(lst, &b, &result);
+	quick_sort(lst, &result);
 	print_result(result);
 	free_result(&result);
 	free(b);
@@ -91,6 +91,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	sorting_selector(&a);
-	print_a(&a);
-	//free_struct(&a);
+	//print_a(&a);
+	free_struct(&a);
 }

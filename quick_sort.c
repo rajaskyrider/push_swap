@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:47:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/02 16:40:54 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/03 17:00:21 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,23 +70,24 @@ void	combine(t_ps_list **a, t_ps_list **b, t_result **result)
 	}
 }
 
-void	quick_sort(t_ps_list **a, t_ps_list	**b, t_result **result)
+void	quick_sort(t_ps_list **a, t_result **result)
 {
 	//t_ps_list	*a;
+	t_ps_list	*b;
 	
 	int			pivot;
 
 	if (!(*a) || !(*a)->next)
 		return ;
 	//a = copylist(lst);
-	//b = NULL;
+	b = NULL;
 
 	if (issorted(a))
 		return ;
 	pivot = choose_pivot(a);
-	split_list(a, b, result, pivot);
-	quick_sort(a, b, result);
-	quick_sort(b, a, result);
-	combine(a, b, result);
+	split_list(a, &b, result, pivot);
+	quick_sort(a, result);
+	quick_sort(&b, result);
+	combine(a, &b, result);
 	//print_a(a);
 }
