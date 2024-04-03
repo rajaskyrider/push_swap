@@ -3,16 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/03/26 20:25:30 by rpandipe         ###   ########.fr       */
-=======
-/*   Updated: 2024/03/29 17:45:49 by rpandipe         ###   ########.fr       */
->>>>>>> a4b1b92fc1c89b3c2f9e934a243efe5cd33e4255
+/*   Updated: 2024/04/02 16:36:56 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
@@ -62,22 +59,26 @@
 void	sorting_selector(t_ps_list **lst)
 {
 	t_result	*result;
+	t_ps_list	*b;
 
 	result = NULL;
+	b = NULL;
 	//bubble_sort(lst, &result);
-	quick_sort(lst, &result);
+	quick_sort(lst, &b, &result);
 	print_result(result);
 	free_result(&result);
+	free(b);
 }
 
 int	main(int argc, char **argv)
 {
 	t_ps_list	*a;
-	char *str[] = {"0", "4", "3", "2", "1", NULL};
+	//char *str[] = {"0", "4", "3", "2", "1", NULL};
+	char *str[] = {"0", "4", "67", "3", "87", "23", NULL};
 
 	a = NULL;
 	argv = str;
-	argc = 5;
+	argc = 6;
 	if (argc < 2)
 	{
 		ft_printf("Error\n");
@@ -90,6 +91,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	sorting_selector(&a);
-	//print_a(&a);
-	free_struct(&a);
+	print_a(&a);
+	//free_struct(&a);
 }

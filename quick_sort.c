@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:47:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/29 17:51:11 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/02 16:40:54 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ int	choose_pivot(t_ps_list **lst)
 
 	a = *lst;
 	c = 0;
+	sum = 0;
 	while (a)
 	{
-		sum = a->n;
+		sum += a->n;
 		c++;
 		a = a->next;
 	}
@@ -37,20 +38,23 @@ void	split_list(t_ps_list **a, t_ps_list **b, t_result **result, int piv)
 {
 	int		count;
 	int		id;
-	t_ps_list	*less;	
-	t_ps_list	*greater;
+	t_ps_list	*temp;
+	//t_ps_list	*less;	
+	//t_ps_list	*greater;
 
 	id = 1;
-	less = *a;
-	greater = *b;
+	temp = *a;
+	//less = *a;
+	//greater = *b;
 	count = ft_list_count(a);
 	while (count > 0)
 	{
-		if (less->n > piv)
-			pb(&less, &greater, result, id);
+		if (temp->n > piv)
+			pb(a, b, result, id);
 		else
-			ra(&less, result, id);
+			ra(a, result, id);
 		count--;
+		temp = *a;
 	}
 }
 
@@ -63,24 +67,26 @@ void	combine(t_ps_list **a, t_ps_list **b, t_result **result)
 	{
 		pa(a, b, result, id);
 		ra(a, result, id);
-		(*b) = (*b)->next;
 	}
 }
 
-void	quick_sort(t_ps_list **lst, t_result **result)
+void	quick_sort(t_ps_list **a, t_ps_list	**b, t_result **result)
 {
-	t_ps_list	*a;
-	t_ps_list	*b;
+	//t_ps_list	*a;
+	
 	int			pivot;
 
-	a = copylist(lst);
-	b = NULL;
-
-	if (issorted(&a))
+	if (!(*a) || !(*a)->next)
 		return ;
-	pivot = choose_pivot(lst);
-	split_list(&a, &b, result, pivot);
-	quick_sort(&a, result);
-	quick_sort(&b, result);
-	combine(&a, &b, result);
+	//a = copylist(lst);
+	//b = NULL;
+
+	if (issorted(a))
+		return ;
+	pivot = choose_pivot(a);
+	split_list(a, b, result, pivot);
+	quick_sort(a, b, result);
+	quick_sort(b, a, result);
+	combine(a, b, result);
+	//print_a(a);
 }

@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:02:21 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/26 19:16:25 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/02 16:22:28 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ t_bool	rotate(t_ps_list **lst)
 	temp = *lst;
 	while (end->next != NULL)
 		end = end->next;
-	end->prev = NULL;
+	temp->next->prev = NULL;
 	end->next = temp;
 	temp->prev = end;
-	*lst = end;
+	*lst = (*lst)->next;
+	temp->next = NULL;
 	return (true);
 }
 
