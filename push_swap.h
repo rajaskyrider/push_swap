@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/04 10:51:21 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/04 20:13:12 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,8 @@ void		split_list(t_ps_list **a, t_ps_list **b, t_result **result, int piv);
 void		deal_three(t_ps_list **a, t_result **result, int size);
 void		deal_five(t_ps_list **a, t_result **result);
 void		combine(t_ps_list **a, t_ps_list **b, t_result **result);
+t_result 	*ft_last(t_result **result);
+void		adjust_b(t_result **result, t_result *start);
+
 
 #endif

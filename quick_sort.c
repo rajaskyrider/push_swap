@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:47:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/03 17:00:21 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/04 20:13:43 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,19 @@ void	combine(t_ps_list **a, t_ps_list **b, t_result **result)
 
 void	quick_sort(t_ps_list **a, t_result **result)
 {
-	//t_ps_list	*a;
 	t_ps_list	*b;
-	
+	int			size;
 	int			pivot;
-
+	t_result	*start;
+	
+	size = ft_list_count(a);
 	if (!(*a) || !(*a)->next)
 		return ;
-	//a = copylist(lst);
+	else if (size <= 3)
+	{
+		deal_three(a, result, size);
+		return ;
+	}
 	b = NULL;
 
 	if (issorted(a))
@@ -87,7 +92,8 @@ void	quick_sort(t_ps_list **a, t_result **result)
 	pivot = choose_pivot(a);
 	split_list(a, &b, result, pivot);
 	quick_sort(a, result);
+	start = ft_last(result);
 	quick_sort(&b, result);
+	adjust_b(result, start);
 	combine(a, &b, result);
-	//print_a(a);
 }
