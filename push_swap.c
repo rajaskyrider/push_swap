@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/03 16:58:59 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:57:13 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 #include "rotate.c"
 #include "reverse_rotate.c"
 #include "quick_sort.c"
+#include "deal_three.c"
+#include "deal_five.c"
 #include "./libft/libft.h"
 #include "./libft/ft_printf.h"
 #include "./libft/ft_printf.c"
@@ -60,11 +62,17 @@ void	sorting_selector(t_ps_list **lst)
 {
 	t_result	*result;
 	t_ps_list	*b;
+	int			size;
 
 	result = NULL;
 	b = NULL;
-	//bubble_sort(lst, &result);
-	quick_sort(lst, &result);
+	size = ft_list_count(lst);
+	if (size <= 3)
+		deal_three(lst, &result, size);
+	else if (size <= 5)
+		deal_five(lst, &result);
+	else
+		quick_sort(lst, &result); //bubble_sort(lst, &result);
 	print_result(result);
 	free_result(&result);
 	free(b);
@@ -74,11 +82,11 @@ int	main(int argc, char **argv)
 {
 	t_ps_list	*a;
 	//char *str[] = {"0", "4", "3", "2", "1", NULL};
-	char *str[] = {"0", "4", "67", "3", "87", "23", NULL};
+	//char *str[] = {"0", "4", "67", "3", "87", "23", NULL};
 
 	a = NULL;
-	argv = str;
-	argc = 6;
+	//argv = str;
+	//argc = 6;
 	if (argc < 2)
 	{
 		ft_printf("Error\n");

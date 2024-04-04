@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:45:22 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/03 15:14:06 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:58:04 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void	print_a(t_ps_list **a)
 
 void	print_result(t_result *result)
 {
-	int	id;
+	//int	id;
 
-	id = 1; // change with a function that find the best sorter
+	//id = 1; // change with a function that find the best sorter
 	while (result)
 	{
-		if (result->id == id)
-			ft_printf("%s\n", result->op);
+		//if (result->id == id)
+		ft_printf("%s\n", result->op);
 		result = result->next;
 	}
 }

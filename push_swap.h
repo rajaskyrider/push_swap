@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/03 16:59:07 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/04 10:51:21 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,12 @@ void		free_result(t_result **lst);
 t_bool		issorted(t_ps_list **a);
 t_ps_list	*copylist(t_ps_list **a);
 void		addentry(t_result **result, char *op, int id);
-int		ft_list_count(t_ps_list **a);
+int			ft_list_count(t_ps_list **a);
 void		quick_sort(t_ps_list **lst, t_result **result);
+int			choose_pivot(t_ps_list **lst);
+void		split_list(t_ps_list **a, t_ps_list **b, t_result **result, int piv);
+void		deal_three(t_ps_list **a, t_result **result, int size);
+void		deal_five(t_ps_list **a, t_result **result);
+void		combine(t_ps_list **a, t_ps_list **b, t_result **result);
 
 #endif
