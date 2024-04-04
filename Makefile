@@ -14,22 +14,22 @@ NAME		= push_swap
 BONUS_NAME	= checker
 LIBFT		= libft.a
 CC		= cc
-CFLAG		= -Wall -Werror -Wextra
+CFLAG		= -Wall -Werror -Wextra -g
 RM		= rm -rf
 SRCS		= push_swap.c handle_input.c bubble_sort.c deal_three.c \
 		  deal_five.c swap.c push.c rotate.c reverse_rotate.c \
-		  utils.c utils_print.c utils_sort.c
-SRCSB		=
+		  utils.c utils_print.c utils_sort.c quick_sort.c
+SRCSB		= checker.c
 OBJS		= $(SRCS:.c=.o)
 OBJSB		= $(SRCSB:.c=.o)
-OBJBB 		= ${filter-out src/push_swap.o ,${OBJS}}
+OBJBB 		= ${filter-out push_swap.o ,${OBJS}}
 
 
 all: $(NAME)
 
 $(NAME) : $(OBJS)
 	@make -C libft
-	@cp libft/libft.a
+	@cp libft/$(LIBFT) .
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 bonus: $(NAME) $(OBJSB)
@@ -41,7 +41,7 @@ clean:
 
 fclean:	clean 
 	cd libft && $(MAKE) fclean
-	$(RM) $(NAME) $(BONUS_NAME)
+	$(RM) $(NAME) $(BONUS_NAME) $(LIBFT)
 
 re: fclean all
 

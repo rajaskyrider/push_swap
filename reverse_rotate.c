@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:16:02 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/26 19:18:03 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/04 17:25:28 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_bool	reverse_rotate(t_ps_list **lst)
 	temp = *lst;
 	while (temp->next != NULL)
 		temp = temp->next;
+	temp->prev->next = NULL;
 	temp->prev = NULL;
 	temp->next = first;
 	first->prev = temp;

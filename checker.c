@@ -6,13 +6,13 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 20:47:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/03 11:00:45 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/04 17:37:07 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
+/*
 #include "handle_input.c"
 #include "utils.c"
 #include "utils_sort.c"
@@ -57,7 +57,7 @@
 #include "./libft/ft_atoi.c"
 #include "./libft/get_next_line.c"
 #include "./libft/get_next_line_utils.c"
-
+*/
 void	free_all(t_ps_list **a, t_ps_list **b, t_result **br, int flag)
 {
 	free_struct(a);

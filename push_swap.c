@@ -6,13 +6,13 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/04 15:57:13 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:14:50 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "push_swap.h"
-
+/*
 #include "handle_input.c"
 #include "utils.c"
 #include "utils_sort.c"
@@ -57,15 +57,16 @@
 #include "./libft/ft_strncmp.c"
 #include "./libft/ft_isalnum.c"
 #include "./libft/ft_atoi.c"
+*/
 
 void	sorting_selector(t_ps_list **lst)
 {
 	t_result	*result;
-	t_ps_list	*b;
+	//t_ps_list	*b;
 	int			size;
 
 	result = NULL;
-	b = NULL;
+	//b = NULL;
 	size = ft_list_count(lst);
 	if (size <= 3)
 		deal_three(lst, &result, size);
@@ -75,13 +76,13 @@ void	sorting_selector(t_ps_list **lst)
 		quick_sort(lst, &result); //bubble_sort(lst, &result);
 	print_result(result);
 	free_result(&result);
-	free(b);
+	//free(b);
 }
 
 int	main(int argc, char **argv)
 {
 	t_ps_list	*a;
-	//char *str[] = {"0", "4", "3", "2", "1", NULL};
+	//char *str[] = {"0", "5", "4", "3", "2", "1", NULL};
 	//char *str[] = {"0", "4", "67", "3", "87", "23", NULL};
 
 	a = NULL;

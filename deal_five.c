@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 10:37:15 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/04 15:51:38 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:21:01 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,26 +36,26 @@ void	sort_five(t_ps_list **a, t_result **result, int flag)
 {
 	if (flag == 0)
 	{
-		sa(a, result, 42);
-		rra(a, result, 42);
+		sb(a, result, 42);
+		rrb(a, result, 42);
 	}
 	if (flag == 1)
-		rra(a, result, 42);
+		rrb(a, result, 42);
 	else if (flag == 2)
-		sa(a, result, 42);
+		sb(a, result, 42);
 	else if (flag == 3)
-		ra(a, result, 42);
+		rb(a, result, 42);
 	else if (flag == 4)
 	{
-		sa(a, result, 42);
-		ra(a, result, 42);
+		sb(a, result, 42);
+		rb(a, result, 42);
 	}
 }
 
 void	reverse_sort(t_ps_list **a, t_result **result, int size)
 {
 	if (size == 2 && issorted(a))
-		sa(a, result, 42);
+		sb(a, result, 42);
 	else if(size == 3 && !issorted(a))
 	{
 		if ((*a)->n > (*a)->next->n && (*a)->n < (*a)->next->next->n)
@@ -86,7 +86,7 @@ void	deal_five(t_ps_list **a, t_result **result)
 
 	b = NULL;
 	pivot = choose_pivot(a);
-	split_list(a, &b, result, pivot);
+	split_five(a, &b, result, pivot);
 	size_a = ft_list_count(a);
 	size_b = ft_list_count(&b);
 	deal_three(a, result, size_a);
