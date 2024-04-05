@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 10:37:15 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/04 18:21:01 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/05 10:54:27 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void	deal_five(t_ps_list **a, t_result **result)
 	int			size_b;
 
 	b = NULL;
+	if (issorted (a))
+		return ;
 	pivot = choose_pivot(a);
 	split_five(a, &b, result, pivot);
 	size_a = ft_list_count(a);
