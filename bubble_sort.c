@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 15:56:02 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/03 09:51:32 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/06 17:19:21 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	bubble_sort(t_ps_list **lst, t_result **result)
 	int			id;
 
 	id = 0;
-	a = copylist(lst);
+	a = *lst;
 	b = NULL;
 	//if (ft_list_count(&a) < 4)
 	//	bubble_aux(&a, result, id);
@@ -60,5 +60,4 @@ void	bubble_sort(t_ps_list **lst, t_result **result)
 				sa(&a, result, id);
 		}
 	}
-	free_struct(&a);
 }

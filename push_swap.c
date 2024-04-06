@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/05 15:20:13 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/06 19:24:04 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@
 #include "swap.c"
 #include "rotate.c"
 #include "reverse_rotate.c"
-#include "quick_sort.c"
+#include "quick_sort_a.c"
+#include "quick_sort_b.c"
+#include "quick_sort_utils.c"
 #include "deal_three.c"
 #include "deal_five.c"
 #include "./libft/libft.h"
@@ -58,22 +60,21 @@
 #include "./libft/ft_isalnum.c"
 #include "./libft/ft_atoi.c"
 
-
 void	sorting_selector(t_ps_list **lst)
 {
 	t_result	*result;
-	//t_ps_list	*b;
+	t_ps_list	*b;
 	int			size;
 
 	result = NULL;
-	//b = NULL;
+	b = NULL;
 	size = ft_list_count(lst);
 	if (size <= 3)
 		deal_three(lst, &result, size);
 	else if (size <= 5)
 		deal_five(lst, &result);
 	else
-		quick_sort(lst, &result); //bubble_sort(lst, &result);
+		quick_sort_a(lst, &b, &result, size); //bubble_sort(lst, &result);
 	print_result(result);
 	//ft_printf("pb\nra\npb\npb\npb\nra\nra\nra\npb\nra\nra\npb\npb\n");
 	free_result(&result);
@@ -83,9 +84,9 @@ void	sorting_selector(t_ps_list **lst)
 int	main(int argc, char **argv)
 {
 	t_ps_list	*a;
-	//char *str[] = {"0", "96 30 7 98 66 4 17 22 65 80 39 34 47 16 72 14 88 90 42 31 56 21 86 10 59 9 20 97 75 68 13 73 26 6 89 58 70 94 3 5 18 2 45 81 61 27 46 87 60 32 33 50 51 77 43 36 99 71 49 57 25 29 28 53 48 76 23 62 64 85 8 74 44 83 12 15 91 78 40 41 38 92 52 1 35 24 84 100 63 79 11 69 54 95 67 37 82 19 55", NULL};
-	char *str[] = {"0", "96 30 98 7 66 22 40 4", NULL};
-
+	char *str[] = {"0", "96 30 7 98 66 4 17 22 65 80 39 34 47 16 72 14 88 90 42 31 56 21 86 10 59 9 20 97 75 68 13 73 26 6 89 58 70 94 3 5 18 2 45 81 61 27 46 87 60 32 33 50 51 77 43 36 99 71 49 57 25 29 28 53 48 76 23 62 64 85 8 74 44 83 12 15 91 78 40 41 38 92 52 1 35 24 84 100 63 79 11 69 54 95 67 37 82 19 55", NULL};
+	//char *str[] = {"0", "96 98 66 4 17 22 65", NULL};
+	//char *str[] = {"0", "96 98 66 4 65", NULL};
 	//char *str[] = {"0", "96 30 7 98 66 4 17 22 65 80 39", NULL};
 	a = NULL;
 	argv = str;

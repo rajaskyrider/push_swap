@@ -6,7 +6,7 @@
 #    By: rpandipe <rpandipe@student.42luxembou      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/04 16:07:00 by rpandipe          #+#    #+#              #
-#    Updated: 2024/04/04 16:48:48 by rpandipe         ###   ########.fr        #
+#    Updated: 2024/04/06 19:09:15 by rpandipe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CFLAG		= -Wall -Werror -Wextra -g
 RM		= rm -rf
 SRCS		= push_swap.c handle_input.c bubble_sort.c deal_three.c \
 		  deal_five.c swap.c push.c rotate.c reverse_rotate.c \
-		  utils.c utils_print.c utils_sort.c quick_sort.c
+		  utils.c utils_print.c utils_sort.c quick_sort_a.c \
+		  quick_sort_b.c quick_sort_utils.c
 SRCSB		= checker.c
 OBJS		= $(SRCS:.c=.o)
 OBJSB		= $(SRCSB:.c=.o)

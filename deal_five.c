@@ -6,11 +6,33 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 10:37:15 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/05 10:54:27 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/06 18:57:43 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	choose_avg(t_ps_list **lst)
+{
+	int	sum;
+	int	c;
+	int	avg;
+	t_ps_list	*a;
+
+	a = *lst;
+	c = 0;
+	sum = 0;
+	while (a)
+	{
+		sum += a->n;
+		c++;
+		a = a->next;
+	}
+	if (c == 0)
+		return (0);
+	avg = sum / c;
+	return (avg);
+}
 
 void	split_five(t_ps_list **a, t_ps_list **b, t_result **result, int piv)
 {
@@ -23,7 +45,7 @@ void	split_five(t_ps_list **a, t_ps_list **b, t_result **result, int piv)
 	count = ft_list_count(a);
 	while (count > 0)
 	{
-		if (temp->n < piv)
+		if (temp->n <= piv)
 			pb(a, b, result, id);
 		else
 			ra(a, result, id);
@@ -87,7 +109,7 @@ void	deal_five(t_ps_list **a, t_result **result)
 	b = NULL;
 	if (issorted (a))
 		return ;
-	pivot = choose_pivot(a);
+	pivot = choose_avg(a);
 	split_five(a, &b, result, pivot);
 	size_a = ft_list_count(a);
 	size_b = ft_list_count(&b);

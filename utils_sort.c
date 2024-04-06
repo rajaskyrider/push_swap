@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:47:18 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/04 20:56:08 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/06 09:27:25 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,32 +65,4 @@ t_result *ft_last(t_result **result)
 	while (temp->next)
 		temp = temp->next;
 	return (temp);
-}
-
-void	adjust_b(t_result **result, t_result *start)
-{
-	int		len;
-	char	*str;
-	(void) result;
-
-	start = start->next;
-	while (start)
-	{
-		len = ft_strlen(start->op) - 1;
-		if (start->op[len] == 'a')
-		{
-			str = ft_calloc(len + 2,  sizeof(char));
-			ft_strlcpy(str, start->op, len +2);
-			start->op = str;
-			start->op[len] = 'b'; 
-		}
-		else if (start->op[len] == 'b')
-		{
-			str = ft_calloc(len + 2,  sizeof(char));
-			ft_strlcpy(str, start->op, len +2);
-			start->op = str;
-			start->op[len] = 'a';
-		}
-		start = start->next;
-	}
 }
