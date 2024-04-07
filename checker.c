@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 20:47:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/07 20:49:28 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 00:12:50 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	free_all(t_ps_list **a, t_ps_list **b, t_result **br, int flag)
 	free_struct(b);
 	free_result(br);
 	if (flag)
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 }
 
 void	execute_sort(t_ps_list **a, char *instrn, t_result **br, t_ps_list **b)

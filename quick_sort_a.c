@@ -6,11 +6,52 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/07 20:58:41 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 00:00:08 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	split_optim_a(t_ps_list **a, t_result **result, int piv)
+{
+	t_ps_list	*temp;
+
+	temp = *a;
+	while (temp->next)
+		temp = temp->next;
+	if (temp->n > piv)
+		ra(a, result, 1);
+	while (temp && temp->n < piv)
+	{
+		temp = temp->prev;
+		rra(a, result, 1);
+	}
+}
+
+void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
+{
+	int	pivot;
+	int	count;
+	int	number;
+
+	count = 0;
+	number = len;
+	pivot = choose_pivot(a, len);
+	while (len != ((number / 2) + (number % 2)))
+	{
+		if ((*a)->n < pivot && len--)
+			pb(a, b, result, 1);
+		else if (++count)
+		{
+			/*if (number == size)
+				split_optim_a(a, result, pivot);
+			else*/
+				ra(a, result, 1);
+		}
+	}
+	while (((number / 2) + (number % 2)) != ft_list_count(a) && count--)
+		rra(a, result, 1);
+}
 
 void	sort_a_aux(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 {
@@ -48,27 +89,15 @@ void	sort_three_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 
 void	quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 {
-	int	pivot;
-	int	count;
 	int	number;
 
-	count = 0;
 	number = len;
 	if (len <= 3)
 	{
 		sort_three_a(a, b, result, len);
 		return ;
 	}
-	pivot = choose_pivot(a, len);
-	while (len != ((number / 2) + (number % 2)))
-	{
-		if ((*a)->n < pivot && len--)
-			pb(a, b, result, 1);
-		else if (++count)
-			ra(a, result, 1);
-	}
-	while (((number / 2) + (number % 2)) != ft_list_count(a) && count--)
-		rra(a, result, 1);
+	split_a(a, b, result, len);
 	quick_sort_a(a, b, result, ((number / 2) + (number % 2)));
 	quick_sort_b(a, b, result, (number / 2));
 }

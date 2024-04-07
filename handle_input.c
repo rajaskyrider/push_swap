@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 19:29:41 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/03/25 18:44:44 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 00:55:18 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 t_bool	check_number(char *s)
 {
+	if (*s == '-' && (*(s + 1) >= '0' && *(s + 1) <= '9'))
+		s++;
 	while (*s)
 	{
-		if (!((*s == '-') || (*s >= '0' && *s <= '9')))
+		if (!(*s >= '0' && *s <= '9'))
 			return (false);
 		s++;
 	}

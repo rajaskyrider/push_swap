@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/07 21:03:25 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 00:44:30 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,15 +80,16 @@ void	sorting_selector(t_ps_list **lst)
 	//ft_printf("pb\nra\npb\npb\npb\nra\nra\nra\npb\nra\nra\npb\npb\n");
 	free_result(&result);
 	if (b)
-		free(b);
+		free_struct(&b);
+	b = NULL;
 }
 
 int	main(int argc, char **argv)
 {
 	t_ps_list	*a;
 	//char *str[] = {"0", "96 30 7 98 66 4 17 22 65 80 39 34 47 16 72 14 88 90 42 31 56 21 86 10 59 9 20 97 75 68 13 73 26 6 89 58 70 94 3 5 18 2 45 81 61 27 46 87 60 32 33 50 51 77 43 36 99 71 49 57 25 29 28 53 48 76 23 62 64 85 8 74 44 83 12 15 91 78 40 41 38 92 52 1 35 24 84 100 63 79 11 69 54 95 67 37 82 19 55", NULL};
-	//char *str[] = {"0", "96 98 66 4 17 22 65", NULL};
-	//char *str[] = {"0", "96 98 66 4 65", NULL};
+	//char *str[] = {"0", "-96 98 66 4 17 22 65", NULL};
+	//char *str[] = {"0", "3 2 -", NULL};
 	//char *str[] = {"0", "96 30 7 98 66 4 17 22 65 80 39", NULL};
 	a = NULL;
 	//argv = str;
@@ -100,7 +101,7 @@ int	main(int argc, char **argv)
 	}
 	if (!check_input(argc, argv, &a))
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		free_struct(&a);
 		return (0);
 	}
