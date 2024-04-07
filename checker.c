@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 20:47:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/07 12:04:37 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/07 20:49:28 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	execute_sort(t_ps_list **a, char *instrn, t_result **br, t_ps_list **b)
 		sb(b, br, 99);
 	else if (ft_strncmp(instrn, "ss\n", 4) == 0)
 		ss(a, b, br, 99);
-	else if (ft_strncmp(instrn, "pa\n", 4) ==0)
+	else if (ft_strncmp(instrn, "pa\n", 4) == 0)
 		pa(a, b, br, 99);
 	else if (ft_strncmp(instrn, "pb\n", 4) == 0)
 		pb(a, b, br, 99);
@@ -100,7 +100,7 @@ int	main(int argc, char**argv)
 	t_ps_list	*a;
 	t_ps_list	*b;
 	t_result	*bresult;
-	char	*instrn;
+	char		*instrn;
 
 	a = NULL;
 	b = NULL;
@@ -108,7 +108,7 @@ int	main(int argc, char**argv)
 	if (argc > 1 && check_input(argc, argv, &a))
 	{
 		instrn = get_next_line(0);
-		while(instrn)
+		while (instrn)
 		{
 			execute_sort(&a, instrn, &bresult, &b);
 			free(instrn);
@@ -118,7 +118,6 @@ int	main(int argc, char**argv)
 			ft_printf("OK\n");
 		else
 			ft_printf("KO\n");
-		//print_a(&a);
 		free_all(&a, &b, &bresult, 0);
 	}
 	return (0);

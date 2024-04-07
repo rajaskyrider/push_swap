@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:45:22 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/06 19:07:46 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/07 21:01:57 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ void	print_a(t_ps_list **a)
 
 void	print_result(t_result *result)
 {
-	//int	id;
-
-	//id = 1; // change with a function that find the best sorter
 	while (result)
 	{
 		if (result->id == 1 || result->id == 42)

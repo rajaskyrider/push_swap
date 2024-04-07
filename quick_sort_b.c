@@ -6,11 +6,29 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:53:34 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/07 11:41:13 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/07 21:00:29 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_b_aux(t_ps_list **a, t_ps_list **b, t_result **result, int len)
+{
+	while (len || \
+		!((*a)->n < (*a)->next->n && (*a)->next->n < (*a)->next->next->n))
+	{
+		if (len == 1 && (*a)->n > (*a)->next->n)
+			sa(a, result, 1);
+		else if (len == 1 || (len >= 2 && (*b)->n > (*b)->next->n) || \
+			(len == 3 && (*b)->n > (*b)->next->next->n))
+		{
+			pa(a, b, result, 1);
+			len--;
+		}
+		else
+			sb(b, result, 1);
+	}
+}
 
 void	sort_three_b(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 {
@@ -25,20 +43,7 @@ void	sort_three_b(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 	}
 	else if (len == 3)
 	{
-		while (len || \
-		!((*a)->n < (*a)->next->n && (*a)->next->n < (*a)->next->next->n))
-		{
-			if (len == 1 && (*a)->n > (*a)->next->n)
-				sa(a, result, 1);
-			else if (len == 1 || (len >= 2 && (*b)->n > (*b)->next->n) ||\
-				(len == 3 && (*b)->n > (*b)->next->next->n))
-			{
-				pa(a, b, result, 1);
-				len--;
-			}
-			else
-				sb(b, result, 1);
-		}
+		sort_b_aux(a, b, result, len);
 	}
 }
 

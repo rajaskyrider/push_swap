@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:47:18 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/06 09:27:25 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/07 21:02:54 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	addentry(t_result **result, char *op, int id)
 int	ft_list_count(t_ps_list **a)
 {
 	t_ps_list	*temp;
-	int		count;
+	int			count;
 
 	temp = *a;
 	count = 0;
-	while(temp)
+	while (temp)
 	{
 		count++;
 		temp = temp->next;
@@ -57,7 +57,7 @@ int	ft_list_count(t_ps_list **a)
 	return (count);
 }
 
-t_result *ft_last(t_result **result)
+t_result	*ft_last(t_result **result)
 {
 	t_result	*temp;
 

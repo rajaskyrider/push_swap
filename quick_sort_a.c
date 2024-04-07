@@ -6,11 +6,32 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/07 11:41:07 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/07 20:58:41 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_a_aux(t_ps_list **a, t_ps_list **b, t_result **result, int len)
+{
+	while (len != 3 || \
+		!((*a)->n < (*a)->next->n && (*a)->next->n < (*a)->next->next->n))
+	{
+		if (len == 3 && (*a)->n > (*a)->next->n && \
+			(*a)->next->next->n)
+			sa(a, result, 1);
+		else if (len == 3 && !((*a)->next->next->n > (*a)->n \
+			&& (*a)->next->next->n > (*a)->next->n))
+		{
+			pb(a, b, result, 1);
+			len--;
+		}
+		else if ((*a)->n > (*a)->next->n)
+			sa(a, result, 1);
+		else if (len++)
+			pa(a, b, result, 1);
+	}
+}
 
 void	sort_three_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 {
@@ -22,24 +43,7 @@ void	sort_three_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 			sa(a, result, 1);
 	}
 	else if (len == 3)
-	{
-		while (len != 3 || \
-		!((*a)->n < (*a)->next->n && (*a)->next->n < (*a)->next->next->n))
-		{
-			if (len == 3 && (*a)->n > (*a)->next->n && (*a)->next->next->n)
-				sa(a, result, 1);
-			else if (len == 3 && !((*a)->next->next->n > (*a)->n\
-				&& (*a)->next->next->n > (*a)->next->n))
-			{
-				pb(a, b, result, 1);
-				len--;
-			}
-			else if ((*a)->n > (*a)->next->n)
-				sa(a, result, 1);
-			else if (len++)
-				pa(a, b, result, 1);
-		}
-	}
+		sort_a_aux(a, b, result, len);
 }
 
 void	quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)

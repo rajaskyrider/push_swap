@@ -6,10 +6,9 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/07 12:04:00 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/07 21:03:25 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 /*
@@ -69,7 +68,7 @@ void	sorting_selector(t_ps_list **lst)
 	result = NULL;
 	b = NULL;
 	if (issorted(lst))
-		return;
+		return ;
 	size = ft_list_count(lst);
 	if (size <= 3)
 		deal_three(lst, &result, size);
@@ -80,7 +79,8 @@ void	sorting_selector(t_ps_list **lst)
 	print_result(result);
 	//ft_printf("pb\nra\npb\npb\npb\nra\nra\nra\npb\nra\nra\npb\npb\n");
 	free_result(&result);
-	//free(b);
+	if (b)
+		free(b);
 }
 
 int	main(int argc, char **argv)

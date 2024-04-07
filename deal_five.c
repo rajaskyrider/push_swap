@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deal_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 10:37:15 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/06 18:57:43 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/07 20:53:54 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	choose_avg(t_ps_list **lst)
 {
-	int	sum;
-	int	c;
-	int	avg;
+	int			sum;
+	int			c;
+	int			avg;
 	t_ps_list	*a;
 
 	a = *lst;
@@ -36,8 +36,8 @@ int	choose_avg(t_ps_list **lst)
 
 void	split_five(t_ps_list **a, t_ps_list **b, t_result **result, int piv)
 {
-	int		count;
-	int		id;
+	int			count;
+	int			id;
 	t_ps_list	*temp;
 
 	id = 42;
@@ -78,22 +78,22 @@ void	reverse_sort(t_ps_list **a, t_result **result, int size)
 {
 	if (size == 2 && issorted(a))
 		sb(a, result, 42);
-	else if(size == 3 && !issorted(a))
+	else if (size == 3 && !issorted(a))
 	{
 		if ((*a)->n > (*a)->next->n && (*a)->n < (*a)->next->next->n)
 			sort_five(a, result, 1);
-		else if((*a)->n < (*a)->next->n && (*a)->n > (*a)->next->next->n)
+		else if ((*a)->n < (*a)->next->n && (*a)->n > (*a)->next->next->n)
 			sort_five(a, result, 2);
-		else if((*a)->n < (*a)->next->n && (*a)->n < (*a)->next->next->n)
+		else if ((*a)->n < (*a)->next->n && (*a)->n < (*a)->next->next->n)
 			sort_five(a, result, 3);
 		else if ((*a)->n > (*a)->next->n && (*a)->n > (*a)->next->next->n \
 					&& (*a)->next->n < (*a)->next->next->n)
 			sort_five(a, result, 4);
 		else if ((*a)->n > (*a)->next->n && (*a)->n > (*a)->next->next->n \
 					&& (*a)->next->n > (*a)->next->next->n)
-					return ;
+			return ;
 	}
-	else if(size == 3 && issorted(a))
+	else if (size == 3 && issorted(a))
 	{
 		sort_five(a, result, 0);
 	}
