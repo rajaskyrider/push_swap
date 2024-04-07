@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/06 19:19:40 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/06 23:32:19 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ void	sort_three_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 		{
 			if (len == 3 && (*a)->n > (*a)->next->n && (*a)->next->next->n)
 				sa(a, result, 1);
-			else if (len == 3 && !((*a)->next->next->n > (*a)->n)\
-				&& (*a)->next->next->n > (*a)->next->n && len--)
+			else if (len == 3 && !((*a)->next->next->n > (*a)->n\
+				&& (*a)->next->next->n > (*a)->next->n))
+			{
 				pb(a, b, result, 1);
+				len--;
+			}
 			else if ((*a)->n > (*a)->next->n)
 				sa(a, result, 1);
 			else if (len++)
@@ -52,8 +55,7 @@ void	quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 		sort_three_a(a, b, result, len);
 		return ;
 	}
-	//pivot = choose_pivot(a, result, len);
-	pivot = choose_avg(a);
+	pivot = choose_pivot(a, result, len);
 	while (len != ((number / 2) + (number % 2)))
 	{
 		if ((*a)->n < pivot && len--)

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/06 19:24:04 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/06 23:35:29 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "push_swap.h"
-
+/*
 #include "handle_input.c"
 #include "utils.c"
 #include "utils_sort.c"
@@ -59,7 +59,7 @@
 #include "./libft/ft_strncmp.c"
 #include "./libft/ft_isalnum.c"
 #include "./libft/ft_atoi.c"
-
+*/
 void	sorting_selector(t_ps_list **lst)
 {
 	t_result	*result;
@@ -84,13 +84,13 @@ void	sorting_selector(t_ps_list **lst)
 int	main(int argc, char **argv)
 {
 	t_ps_list	*a;
-	char *str[] = {"0", "96 30 7 98 66 4 17 22 65 80 39 34 47 16 72 14 88 90 42 31 56 21 86 10 59 9 20 97 75 68 13 73 26 6 89 58 70 94 3 5 18 2 45 81 61 27 46 87 60 32 33 50 51 77 43 36 99 71 49 57 25 29 28 53 48 76 23 62 64 85 8 74 44 83 12 15 91 78 40 41 38 92 52 1 35 24 84 100 63 79 11 69 54 95 67 37 82 19 55", NULL};
+	//char *str[] = {"0", "96 30 7 98 66 4 17 22 65 80 39 34 47 16 72 14 88 90 42 31 56 21 86 10 59 9 20 97 75 68 13 73 26 6 89 58 70 94 3 5 18 2 45 81 61 27 46 87 60 32 33 50 51 77 43 36 99 71 49 57 25 29 28 53 48 76 23 62 64 85 8 74 44 83 12 15 91 78 40 41 38 92 52 1 35 24 84 100 63 79 11 69 54 95 67 37 82 19 55", NULL};
 	//char *str[] = {"0", "96 98 66 4 17 22 65", NULL};
 	//char *str[] = {"0", "96 98 66 4 65", NULL};
 	//char *str[] = {"0", "96 30 7 98 66 4 17 22 65 80 39", NULL};
 	a = NULL;
-	argv = str;
-	argc = 2;
+	//argv = str;
+	//argc = 2;
 	if (argc < 2)
 	{
 		//ft_printf("Error\n");

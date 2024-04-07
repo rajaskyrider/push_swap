@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/06 19:20:06 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/06 22:42:46 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void		free_result(t_result **lst);
 t_bool		issorted(t_ps_list **a);
 t_ps_list	*copylist(t_ps_list **a);
 void		addentry(t_result **result, char *op, int id);
+void		bubble_sort(t_ps_list **lst, t_result **result);
 int			ft_list_count(t_ps_list **a);
 void		quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len);
 void		quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len);

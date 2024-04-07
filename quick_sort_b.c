@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:53:34 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/06 19:19:30 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/06 23:10:01 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ void	quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 		sort_three_b(a, b, result, len);
 		return ;
 	}
-	//pivot = choose_pivot(b, result, len);
-	pivot = choose_avg(b);
+	pivot = choose_pivot(b, result, len);
 	while (len != (number / 2))
 	{
 		if ((*b)->n >= pivot && len--)
@@ -65,7 +64,7 @@ void	quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 			rb(b, result, 1);
 	}
 	while ((number / 2) != ft_list_count(b) && count--)
-		rrb(a, result, 1);
+		rrb(b, result, 1);
 	quick_sort_a(a, b, result, ((number / 2) + (number % 2)));
 	quick_sort_b(a, b, result, (number / 2));
 }
