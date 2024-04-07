@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/06 22:42:46 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/07 11:41:44 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ typedef struct s_result
 void		sa(t_ps_list **a, t_result **result, int id);
 void		sb(t_ps_list **b, t_result **result, int id);
 void		ss(t_ps_list **a, t_ps_list **b, t_result **result, int id);
+t_bool		swap(t_ps_list **lst);
 void		pa(t_ps_list **a, t_ps_list **b, t_result **result, int id);
 void		pb(t_ps_list **a, t_ps_list **b, t_result **result, int id);
+t_bool		push(t_ps_list **destinationlist, t_ps_list **sourcelist);
 void		ra(t_ps_list **a, t_result **result, int id);
 void		rb(t_ps_list **b, t_result **result, int id);
 void		rr(t_ps_list **a, t_ps_list **b, t_result **result, int id);
@@ -54,11 +56,11 @@ void		free_result(t_result **lst);
 t_bool		issorted(t_ps_list **a);
 t_ps_list	*copylist(t_ps_list **a);
 void		addentry(t_result **result, char *op, int id);
-void		bubble_sort(t_ps_list **lst, t_result **result);
+void		bubble_sort(t_ps_list **lst);
 int			ft_list_count(t_ps_list **a);
 void		quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len);
 void		quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len);
-int			choose_pivot(t_ps_list **lst, t_result **result, int len);
+int			choose_pivot(t_ps_list **lst, int len);
 t_ps_list	*copychunk(t_ps_list **a, int len);
 void		split_list(t_ps_list **a, t_ps_list **b, t_result **result, int piv);
 void		deal_three(t_ps_list **a, t_result **result, int size);

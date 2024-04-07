@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 20:47:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/04 20:59:59 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/07 12:04:37 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ int	main(int argc, char**argv)
 			ft_printf("OK\n");
 		else
 			ft_printf("KO\n");
-		print_a(&a);
+		//print_a(&a);
 		free_all(&a, &b, &bresult, 0);
 	}
 	return (0);

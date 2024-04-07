@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/06 23:32:19 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/07 11:41:07 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 		sort_three_a(a, b, result, len);
 		return ;
 	}
-	pivot = choose_pivot(a, result, len);
+	pivot = choose_pivot(a, len);
 	while (len != ((number / 2) + (number % 2)))
 	{
 		if ((*a)->n < pivot && len--)

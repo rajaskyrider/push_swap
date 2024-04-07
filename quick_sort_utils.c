@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 17:00:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/06 19:00:07 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/07 11:40:57 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ t_ps_list	*copychunk(t_ps_list **a, int len)
 	return (copyhead);
 }
 
-int	choose_pivot(t_ps_list **lst, t_result **result, int len)
+int	choose_pivot(t_ps_list **lst, int len)
 {
 	t_ps_list	*temp;
 	int			half;
 	int			pivot;
 
 	temp = copychunk(lst, len);
-	bubble_sort(&temp, result);
+	bubble_sort(&temp);
 	half = (len / 2);
 	while (half--)
 		temp = temp->next;

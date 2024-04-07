@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/06 23:35:29 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/07 12:04:00 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	sorting_selector(t_ps_list **lst)
 
 	result = NULL;
 	b = NULL;
+	if (issorted(lst))
+		return;
 	size = ft_list_count(lst);
 	if (size <= 3)
 		deal_three(lst, &result, size);
