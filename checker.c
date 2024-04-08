@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 20:47:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/08 16:40:44 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 17:23:43 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ void	free_all(t_ps_list **a, t_ps_list **b, t_result **br, int flag)
 		write(2, "Error\n", 6);
 		exit (1);
 	}
+}
+
+void	print_check(t_ps_list **a)
+{
+	if (issorted(a))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 }
 
 void	execute_sort(t_ps_list **a, char *instrn, t_result **br, t_ps_list **b)
@@ -62,20 +70,21 @@ int	main(int argc, char**argv)
 	a = NULL;
 	b = NULL;
 	bresult = NULL;
-	if (argc > 1 && check_input(argc, argv, &a))
+	if (argc > 1)
 	{
-		instrn = get_next_line(0);
-		while (instrn)
+		if (check_input(argc, argv, &a))
 		{
-			execute_sort(&a, instrn, &bresult, &b);
-			free(instrn);
 			instrn = get_next_line(0);
+			while (instrn)
+			{
+				execute_sort(&a, instrn, &bresult, &b);
+				free(instrn);
+				instrn = get_next_line(0);
+			}
+			print_check(&a);
 		}
-		if (issorted(&a))
-			ft_printf("OK\n");
 		else
-			ft_printf("KO\n");
+			write(2, "Error\n", 6);
 		free_all(&a, &b, &bresult, 0);
 	}
-	return (0);
 }
