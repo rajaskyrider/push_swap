@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/08 19:17:42 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 21:44:47 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ void		combine(t_ps_list **a, t_ps_list **b, t_result **result);
 t_result	*ft_last(t_result **result);
 int			choose_avg(t_ps_list **lst);
 void		print_error(void);
+void		sort_opt(t_result **result);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 20:21:51 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/08 16:41:28 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 21:52:36 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,15 @@ t_ps_list	*create_node(int n)
 
 void	free_struct(t_ps_list **lst)
 {
-	int			count;
 	t_ps_list	*current;
 	t_ps_list	*next_node;
 
-	count = 0;
 	current = *lst;
 	while (current)
 	{
 		next_node = current->next;
 		free(current);
 		current = next_node;
-		count++;
 	}
 	*lst = NULL;
 }

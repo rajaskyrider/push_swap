@@ -19,7 +19,7 @@ RM		= rm -rf
 SRCS		= push_swap.c handle_input.c bubble_sort.c deal_three.c \
 		  deal_five.c swap.c push.c rotate.c reverse_rotate.c \
 		  utils.c utils_print.c utils_sort.c quick_sort_a.c \
-		  quick_sort_b.c quick_sort_utils.c
+		  quick_sort_b.c quick_sort_utils.c post_opt.c
 SRCSB		= checker.c
 OBJS		= $(SRCS:.c=.o)
 OBJSB		= $(SRCSB:.c=.o)
