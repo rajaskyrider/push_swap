@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/08 00:00:08 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:17:53 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	split_optim_a(t_ps_list **a, t_result **result, int piv)
 	temp = *a;
 	while (temp->next)
 		temp = temp->next;
-	if (temp->n > piv)
-		ra(a, result, 1);
 	while (temp && temp->n < piv)
 	{
 		temp = temp->prev;
@@ -37,6 +35,8 @@ void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 	count = 0;
 	number = len;
 	pivot = choose_pivot(a, len);
+	if (number == ft_list_count(a))
+		split_optim_a(a, result, pivot);
 	while (len != ((number / 2) + (number % 2)))
 	{
 		if ((*a)->n < pivot && len--)

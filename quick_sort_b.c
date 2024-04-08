@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:53:34 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/07 21:00:29 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:17:57 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	split_optim_b(t_ps_list **b, t_result **result, int piv)
+{
+	t_ps_list	*temp;
+
+	temp = *b;
+	while (temp->next)
+		temp = temp->next;
+	while (temp && temp->n >= piv)
+	{
+		temp = temp->prev;
+		rrb(b, result, 1);
+	}
+}
 
 void	sort_b_aux(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 {
@@ -61,6 +75,8 @@ void	quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 		return ;
 	}
 	pivot = choose_pivot(b, len);
+	if (number == ft_list_count(b))
+		split_optim_b(b, result, pivot);
 	while (len != (number / 2))
 	{
 		if ((*b)->n >= pivot && len--)
