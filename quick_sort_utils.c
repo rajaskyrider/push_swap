@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 17:00:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/08 09:53:48 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:43:00 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ t_ps_list	*copychunk(t_ps_list **a, int len)
 		len--;
 	}
 	copy->next = NULL;
-	tcpy = NULL;
 	return (copyhead);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/07 11:41:44 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:45:05 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,18 @@ t_ps_list	*copylist(t_ps_list **a);
 void		addentry(t_result **result, char *op, int id);
 void		bubble_sort(t_ps_list **lst);
 int			ft_list_count(t_ps_list **a);
-void		quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len);
-void		quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len);
+void		quick_sort_a(t_ps_list **a, t_ps_list **b, \
+							t_result **result, int len);
+void		quick_sort_b(t_ps_list **a, t_ps_list **b, \
+							t_result **result, int len);
 int			choose_pivot(t_ps_list **lst, int len);
 t_ps_list	*copychunk(t_ps_list **a, int len);
-void		split_list(t_ps_list **a, t_ps_list **b, t_result **result, int piv);
+void		split_list(t_ps_list **a, t_ps_list **b, \
+						t_result **result, int piv);
 void		deal_three(t_ps_list **a, t_result **result, int size);
 void		deal_five(t_ps_list **a, t_result **result);
 void		combine(t_ps_list **a, t_ps_list **b, t_result **result);
-t_result 	*ft_last(t_result **result);
+t_result	*ft_last(t_result **result);
 int			choose_avg(t_ps_list **lst);
-
 
 #endif

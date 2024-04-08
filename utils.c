@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 20:21:51 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/08 09:33:40 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:41:28 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_ps_list	*create_node(int n)
 
 void	free_struct(t_ps_list **lst)
 {
-	int	count;
+	int			count;
 	t_ps_list	*current;
 	t_ps_list	*next_node;
 

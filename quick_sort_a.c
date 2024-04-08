@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/08 16:17:53 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:42:43 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,12 @@ void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 	count = 0;
 	number = len;
 	pivot = choose_pivot(a, len);
-	if (number == ft_list_count(a))
-		split_optim_a(a, result, pivot);
 	while (len != ((number / 2) + (number % 2)))
 	{
 		if ((*a)->n < pivot && len--)
 			pb(a, b, result, 1);
 		else if (++count)
-		{
-			/*if (number == size)
-				split_optim_a(a, result, pivot);
-			else*/
-				ra(a, result, 1);
-		}
+			ra(a, result, 1);
 	}
 	while (((number / 2) + (number % 2)) != ft_list_count(a) && count--)
 		rra(a, result, 1);
