@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:45:22 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/07 21:01:57 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 19:17:28 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,10 @@ void	print_result(t_result *result)
 			ft_printf("%s\n", result->op);
 		result = result->next;
 	}
+}
+
+void	print_error(void)
+{
+	write(1, "Error\n", 6);
+	exit(1);
 }

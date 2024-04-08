@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/08 16:42:20 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 18:56:29 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,8 @@ int	main(int argc, char **argv)
 		return (0);
 	if (!check_input(argc, argv, &a))
 	{
-		write(2, "Error\n", 6);
 		free_struct(&a);
-		return (0);
+		print_error();
 	}
 	sorting_selector(&a);
 	free_struct(&a);

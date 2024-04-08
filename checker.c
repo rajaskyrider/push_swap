@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 20:47:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/08 17:23:43 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 19:16:53 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ void	free_all(t_ps_list **a, t_ps_list **b, t_result **br, int flag)
 	free_struct(b);
 	free_result(br);
 	if (flag)
-	{
-		write(2, "Error\n", 6);
-		exit (1);
-	}
+		print_error();
 }
 
 void	print_check(t_ps_list **a)
@@ -82,9 +79,9 @@ int	main(int argc, char**argv)
 				instrn = get_next_line(0);
 			}
 			print_check(&a);
+			free_all(&a, &b, &bresult, 0);
 		}
 		else
-			write(2, "Error\n", 6);
-		free_all(&a, &b, &bresult, 0);
+			free_all(&a, &b, &bresult, 1);
 	}
 }

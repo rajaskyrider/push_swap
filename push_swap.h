@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/08 16:45:05 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/08 19:17:42 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ void		deal_five(t_ps_list **a, t_result **result);
 void		combine(t_ps_list **a, t_ps_list **b, t_result **result);
 t_result	*ft_last(t_result **result);
 int			choose_avg(t_ps_list **lst);
+void		print_error(void);
 
 #endif
