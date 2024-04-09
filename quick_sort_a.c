@@ -6,16 +6,18 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/09 22:08:26 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/09 23:09:50 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	split_optim_a(t_ps_list **a, t_result **result, int piv)
+int	split_optim_a(t_ps_list **a, t_ps_list **b, t_result **result, int piv)
 {
 	t_ps_list	*temp;
+	int		count;
 
+	count = 0;
 	temp = *a;
 	while (temp->next)
 		temp = temp->next;
@@ -23,7 +25,13 @@ void	split_optim_a(t_ps_list **a, t_result **result, int piv)
 	{
 		temp = temp->prev;
 		rra(a, result, 1);
+		if ((*a)->n == find_min(a, ft_list_count(a)))
+		{
+			pb(a, b, result, 1);
+			count++;
+		}
 	}
+	return (count);
 }
 
 void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
@@ -38,12 +46,20 @@ void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 	number = len;
 	pivot = choose_pivot(a, len);
 	if (number == ft_list_count(a))
-		split_optim_a(a, result, pivot);
+		len -= split_optim_a(a, b, result, pivot);
 	while (len != ((number / 2) + (number % 2)))
 	{
 		if ((*a)->n < pivot && len--)
 		{
+			/*if ((len - 1) > 0 && (*a)->n > (*a)->next->n)
+			{
+				sa(a, result, 1);
+				pb(a, b, result, 1);
+				len--;
+			}*/
+			//not sure about loop above
 			pb(a, b, result, 1);
+			//if (len - 1 > 0 && )
 			//flag = 0;
 			/*if ((number - len) == ft_list_count(b) && (*b)->n < last_n(b))
 			{	
