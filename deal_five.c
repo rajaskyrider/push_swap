@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deal_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 10:37:15 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/07 20:53:54 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:14:14 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,18 @@ void	split_five(t_ps_list **a, t_ps_list **b, t_result **result, int piv)
 	int			count;
 	int			id;
 	t_ps_list	*temp;
+	int			nbr;
 
 	id = 42;
 	temp = *a;
 	count = ft_list_count(a);
-	while (count > 0)
+	nbr = count;
+	while (count != ((nbr / 2) + (nbr % 2)))
 	{
-		if (temp->n <= piv)
+		if (temp->n < piv && count--)
 			pb(a, b, result, id);
 		else
 			ra(a, result, id);
-		count--;
 		temp = *a;
 	}
 }
@@ -109,7 +110,7 @@ void	deal_five(t_ps_list **a, t_result **result)
 	b = NULL;
 	if (issorted (a))
 		return ;
-	pivot = choose_avg(a);
+	pivot = choose_pivot(a, ft_list_count(a));
 	split_five(a, &b, result, pivot);
 	size_a = ft_list_count(a);
 	size_b = ft_list_count(&b);
