@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:53:34 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/09 10:08:30 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:52:55 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ void	quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 		if ((*b)->n >= pivot && len--)
 		{
 			pa(a, b, result, 1);
-			if (number - len >= 3 && (*a)->n > (*a)->next->n && (*a)->n < (*a)->next->next->n)
-				sa(a, result, 42);
+			/*if (number - len >= 3 && (*a)->n > (*a)->next->n && (*a)->n < (*a)->next->next->n)
+				sa(a, result, 42);*/
 		}
 		else if (++count)
 			rb(b, result, 1);
