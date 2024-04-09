@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/09 09:40:16 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:49:19 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 #include "handle_input.c"
 #include "utils.c"
 #include "utils_sort.c"
@@ -59,7 +59,7 @@
 #include "./libft/ft_strncmp.c"
 #include "./libft/ft_isalnum.c"
 #include "./libft/ft_atoi.c"
-
+*/
 void	sorting_selector(t_ps_list **lst)
 {
 	t_result	*result;

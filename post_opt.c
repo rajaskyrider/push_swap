@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   post_opt.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 21:07:51 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/08 23:36:16 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:04:44 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,9 @@ void	purge_node(t_result **result, t_result **node)
 	}
 	if (head)
 		head->next = tail;
-	free((*node)->next);
 	temp = (*node);
+	(*node) = temp->next->next;
+	free(temp->next);
 	free(temp);
 }
 
@@ -69,7 +70,8 @@ void	result_merge(char *op1, char *op2, char *op3, t_result **result)
 		if (temp->next && ft_strncmp(temp->op, op1, ft_strlen(op1)) == 0 \
 			&& ft_strncmp(temp->next->op, op2, ft_strlen(op2)) == 0)
 			merge_node(result, &temp, op3);
-		temp = temp->next;
+		else
+			temp = temp->next;
 	}
 	temp = *result;
 	while(temp)
@@ -77,7 +79,8 @@ void	result_merge(char *op1, char *op2, char *op3, t_result **result)
 		if (temp->next && ft_strncmp(temp->op, op2, ft_strlen(op2)) == 0\
 			&& ft_strncmp(temp->next->op, op1, ft_strlen(op1)) == 0)
 			merge_node(result, &temp, op3);
-		temp = temp->next;
+		else
+			temp = temp->next;
 	}
 }
 
@@ -91,7 +94,8 @@ void	result_purge(char *op1, char *op2, t_result **result)
 		if (temp->next && ft_strncmp(temp->op, op1, ft_strlen(op1)) == 0 \
 			&& ft_strncmp(temp->next->op, op2, ft_strlen(op2)) == 0)
 			purge_node(result, &temp);
-		temp = temp->next;
+		else
+			temp = temp->next;
 	}
 	temp = *result;
 	while(temp)
@@ -99,7 +103,8 @@ void	result_purge(char *op1, char *op2, t_result **result)
 		if (temp->next && ft_strncmp(temp->op, op2, ft_strlen(op2)) == 0 \
 			&& ft_strncmp(temp->next->op, op1, ft_strlen(op1)) == 0)
 			purge_node(result, &temp);
-		temp = temp->next;
+		else
+			temp = temp->next;
 	}
 }
 
