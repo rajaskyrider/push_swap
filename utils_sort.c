@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:47:18 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/07 21:02:54 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/09 00:19:55 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,14 @@ t_result	*ft_last(t_result **result)
 	while (temp->next)
 		temp = temp->next;
 	return (temp);
+}
+
+int	last_n(t_ps_list **b)
+{
+	t_ps_list	*temp;
+
+	temp = *b;
+	while(temp->next)
+		temp = temp->next;
+	return (temp->n);
 }

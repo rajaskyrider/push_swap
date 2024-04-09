@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/08 23:57:43 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/09 00:58:51 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,16 @@ void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 	while (len != ((number / 2) + (number % 2)))
 	{
 		if ((*a)->n < pivot && len--)
+		{
 			pb(a, b, result, 1);
+			if ((number - len) == ft_list_count(b) && (*b)->n < last_n(b))
+				rb(b, result, 1);
+		}
+		else if ((len + count) == ft_list_count(a) && (*a)->n > last_n(a))
+		{
+			rra(a, result, 1);
+			sa(a, result, 1);
+		}
 		else if (++count)
 			ra(a, result, 1);
 	}
