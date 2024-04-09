@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/09 11:33:22 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/09 22:08:26 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 	int	pivot;
 	int	count;
 	int	number;
-	int	flag;
+	//int	flag;
 
 	count = 0;
-	flag = 0;
+	//flag = 0;
 	number = len;
 	pivot = choose_pivot(a, len);
 	if (number == ft_list_count(a))
@@ -44,7 +44,7 @@ void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 		if ((*a)->n < pivot && len--)
 		{
 			pb(a, b, result, 1);
-			flag = 0;
+			//flag = 0;
 			/*if ((number - len) == ft_list_count(b) && (*b)->n < last_n(b))
 			{	
 				rb(b, result, 1);
@@ -52,12 +52,12 @@ void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 					sb(b , result, 1);
 			}*/			
 		}
-		else if ((len + count) == ft_list_count(a) && (*a)->n > last_n(a) && flag == 0)
+		/*else if ((len + count) == ft_list_count(a) && (*a)->n > last_n(a) && flag == 0)
 		{
 			rra(a, result, 1);
 			sa(a, result, 1);
 			flag = 1;
-		}
+		}*/
 		else if (++count)
 			ra(a, result, 1);
 	}

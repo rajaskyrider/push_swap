@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/09 00:21:25 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/09 21:59:27 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ int			choose_avg(t_ps_list **lst);
 void		print_error(void);
 void		sort_opt(t_result **result);
 int			last_n(t_ps_list **b);
+int			find_max(t_ps_list **lst, int len);
 
 #endif
