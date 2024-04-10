@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/10 12:53:20 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/10 13:46:50 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,6 @@ int	main(int argc, char **argv)
 		print_error();
 	}
 	sorting_selector(&a);
+	//print_a(&a);
 	free_struct(&a);
 }

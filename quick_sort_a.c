@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/10 12:50:24 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/10 13:45:07 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 			sa(a, result, 1);
 			flag = 1;
 		}*/
-		else
-		{	
-			if (number == size && smart_rotate_a(a, result, pivot))
+		else if (number == size && smart_rotate_a(a, result, pivot))
 				len -= split_optim_a(a, b, result, pivot);
-			else if (count++)
-				ra(a, result, 1);
+		else
+		{
+			ra(a, result, 1);
+			count++;
 		}
 	}
 	while (((number / 2) + (number % 2)) != ft_list_count(a) && count--)
