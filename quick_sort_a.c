@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/09 23:09:50 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/09 23:30:10 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 			}*/
 			//not sure about loop above
 			pb(a, b, result, 1);
+			
+			//if ((*b)->next && (*b)->n < (*b)->next->n)
+			//	sb(a, result, 1);
 			//if (len - 1 > 0 && )
 			//flag = 0;
 			/*if ((number - len) == ft_list_count(b) && (*b)->n < last_n(b))
