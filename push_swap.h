@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/09 22:57:13 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/10 12:51:07 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ void		sort_opt(t_result **result);
 int			last_n(t_ps_list **b);
 int			find_max(t_ps_list **lst, int len);
 int			find_min(t_ps_list **lst, int len);
+t_bool		smart_rotate_a(t_ps_list **a, t_result **result, int piv);
 
 #endif
