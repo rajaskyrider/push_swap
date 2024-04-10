@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:53:34 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/09 22:03:15 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:25:46 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,23 +74,34 @@ void	quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 	int	pivot;
 	int	count;
 	int	number;
+	int size;
 
 	number = len;
 	count = 0;
+	size = ft_list_count(b);
 	if (len <= 3)
 	{
 		sort_three_b(a, b, result, len);
 		return ;
 	}
 	pivot = choose_pivot(b, len);
-	if (number == ft_list_count(b))
+	if (number == size)
 		len -= split_optim_b(a, b, result, pivot);
 	while (len != (number / 2))
 	{
 		if ((*b)->n >= pivot && len--)
+		{
 			pa(a, b, result, 1);
-		else if (++count)
+			smart_swap_a(a, result, len, number);
+		}
+
+		//else if (number == size && smart_rotate_b(b, result, pivot))
+	//			len -= split_optim_b(a, b, result, pivot);
+		else
+		{
 			rb(b, result, 1);
+			count++;
+		}
 	}
 	while ((number / 2) != ft_list_count(b) && count--)
 		rrb(b, result, 1);

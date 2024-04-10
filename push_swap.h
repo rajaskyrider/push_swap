@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/10 12:51:07 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:15:20 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,8 @@ int			last_n(t_ps_list **b);
 int			find_max(t_ps_list **lst, int len);
 int			find_min(t_ps_list **lst, int len);
 t_bool		smart_rotate_a(t_ps_list **a, t_result **result, int piv);
+t_bool		smart_rotate_b(t_ps_list **b, t_result **result, int piv);
+void		smart_swap_a(t_ps_list **a, t_result **result, int len, int number);
+void		smart_swap_b(t_ps_list **b, t_result **result, int len, int number);
 
 #endif

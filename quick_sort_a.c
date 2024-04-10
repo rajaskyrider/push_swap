@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/10 13:45:07 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:27:27 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 			}*/
 			//not sure about loop above
 			pb(a, b, result, 1);
+			//smart_swap_b(b, result, len, number);
 			
 			//if ((*b)->next && (*b)->n < (*b)->next->n)
 			//	sb(a, result, 1);
