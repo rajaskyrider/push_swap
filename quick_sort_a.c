@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/11 09:42:17 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:08:33 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	split_optim_a(t_ps_list **a, t_ps_list **b, t_result **result, int piv)
 			count++;
 		}
 	}
+	if ((*a)->n == find_max(a, ft_list_count(a)))
+		ra(a, result, 1);
 
 	return (count);
 }
@@ -71,7 +73,12 @@ void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 			//not sure about loop above
 			pb(a, b, result, 1);
 			if (size_b == 0 && (*b)->n < piv_b)
-				rb(b, result, 1);
+			{
+				if ((number - len) == 3 && (*b)->n > (*b)->next->next->n)
+					sb(b, result, 1);
+				else
+					rb(b, result, 1);
+			}
 			else if (size_b != 0 && (*b)->n > piv_b)
 			{
 				rb(b, result, 1);
@@ -167,6 +174,11 @@ void	quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 		sort_three_a(a, b, result, len);
 		return ;
 	}
+	/*else if (len <= 5 && len == ft_list_count(a))
+	{
+		deal_five(a, &result);
+		return ;
+	}*/
 	split_a(a, b, result, len);
 	quick_sort_a(a, b, result, ((number / 2) + (number % 2)));
 	quick_sort_b(a, b, result, (number / 2));

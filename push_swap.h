@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/10 23:25:32 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:17:40 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ void		smart_swap_a(t_ps_list **a, t_result **result, int len, int number);
 void		smart_swap_b(t_ps_list **b, t_result **result, int len, int number);
 int			pivot_b(t_ps_list **lst, int len);
 int			pivot_a(t_ps_list **lst, int len);
+void		rank(t_ps_list **a);
 
 #endif

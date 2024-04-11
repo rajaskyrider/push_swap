@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/11 10:43:33 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:42:11 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 #include "deal_five.c"
 #include "post_opt.c"
 #include "utils_opt.c"
+#include "rank.c"
 #include "./libft/libft.h"
 #include "./libft/ft_printf.h"
 #include "./libft/ft_printf.c"
@@ -103,8 +104,10 @@ int	main(int argc, char **argv)
 	//char *str[] = {"0", "10 8 2 6 7 4 9 3 1 5", NULL};
 	//6 2 10 8 7 3 5 9 1 4
 	//char *str[] = {"0", "74 30 54 27 22 17 1 62 86 9 39 90 55 51 45 68 81 96 85 79 19 6 87 66 82 14 57 15 88 92 93 32 50 91 78 71 53 4 98 12 75 21 20 58 42 16 67 23 89 80 69 56 5 3 41 97 77 13 61 11 29 73 7 99 25 34 26 18 70 83 46 52 59 33 8 36 0 65 24 49 35 43 48 72 44 95 37 64 63 40 2 31 60 38 94 76 84 47 28 10", NULL};
+	//char *str[] = {"0", "9 6 4 7 8 1 2 5 3 10", NULL};
+	//char *str[] = {"0", "10 9 8 7 6", NULL};
 
-	//argv = str;
+	//aprint_a(&a);rgv = str;
 	//argc = 2;
 
 	if (argc < 2)
@@ -114,6 +117,7 @@ int	main(int argc, char **argv)
 		free_struct(&a);
 		print_error();
 	}
+	rank(&a);
 	sorting_selector(&a);
 	//print_a(&a);
 	free_struct(&a);
