@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   post_opt.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 21:07:51 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/09 10:04:44 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/11 10:48:54 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	purge_node(t_result **result, t_result **node)
 	if (head)
 		head->next = tail;
 	temp = (*node);
-	(*node) = temp->next->next;
+	(*node) = head;
 	free(temp->next);
 	free(temp);
 }
@@ -100,6 +100,12 @@ void	result_purge(char *op1, char *op2, t_result **result)
 	temp = *result;
 	while(temp)
 	{
+		if (temp->next && ft_strncmp(temp->op, "rrr", 3) == 0 && ft_strncmp(temp->next->op, "rra", 3) == 0)
+		{
+			ft_strlen("rrr");
+			ft_strncmp(temp->op, "rrr", 3);
+			ft_strncmp(temp->next->op, "rra", 3);
+		}
 		if (temp->next && ft_strncmp(temp->op, op2, ft_strlen(op2)) == 0 \
 			&& ft_strncmp(temp->next->op, op1, ft_strlen(op1)) == 0)
 			purge_node(result, &temp);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:53:34 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/10 15:25:46 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/11 09:42:40 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,38 +73,57 @@ void	quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 {
 	int	pivot;
 	int	count;
+	int	count_a;
 	int	number;
-	int size;
+	int	piv_a;
 
 	number = len;
 	count = 0;
-	size = ft_list_count(b);
+	count_a = 0;
 	if (len <= 3)
 	{
 		sort_three_b(a, b, result, len);
 		return ;
 	}
 	pivot = choose_pivot(b, len);
-	if (number == size)
+	piv_a = pivot_b(b, len);
+	if (number == ft_list_count(b))
 		len -= split_optim_b(a, b, result, pivot);
 	while (len != (number / 2))
 	{
 		if ((*b)->n >= pivot && len--)
 		{
 			pa(a, b, result, 1);
-			smart_swap_a(a, result, len, number);
+			if ((*a)->n < piv_a)
+			{
+				ra(a, result, 1);
+				count_a++;
+			}
+			else
+				smart_swap_a(a, result, len, number);
 		}
 
 		//else if (number == size && smart_rotate_b(b, result, pivot))
-	//			len -= split_optim_b(a, b, result, pivot);
+		//	len -= split_optim_b(a, b, result, pivot);
 		else
 		{
 			rb(b, result, 1);
 			count++;
 		}
 	}
-	while ((number / 2) != ft_list_count(b) && count--)
-		rrb(b, result, 1);
+	while (((number / 2) != ft_list_count(b) && count) || (!(issorted(a)) && count_a))
+	{
+		if (count > 0)
+		{
+			rrb(b, result, 1);
+			count--;
+		}
+		if (count_a > 0)
+		{
+			rra(a, result, 1);
+			count_a--;
+		}
+	}
 	quick_sort_a(a, b, result, ((number / 2) + (number % 2)));
 	quick_sort_b(a, b, result, (number / 2));
 }

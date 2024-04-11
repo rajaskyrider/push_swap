@@ -1,7 +1,8 @@
 {
 	"C_Cpp.errorSquiggles": "enabled",
     "files.associations": {
-        "ft_printf.h": "c",
-        "push_swap.h": "c"
-	}
+	"ft_printf.h": "c",
+	"push_swap.h": "c",
+	"sstream": "c"
+}
 }
