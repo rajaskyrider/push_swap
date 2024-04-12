@@ -5,181 +5,104 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/11 16:08:33 by rpandipe         ###   ########.fr       */
+/*   Created: 2024/04/12 09:29:54 by rpandipe          #+#    #+#             */
+/*   Updated: 2024/04/12 19:35:07 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	split_optim_a(t_ps_list **a, t_ps_list **b, t_result **result, int piv)
+int	insert_b(t_ps_list **b, t_result **result, int max, int size)
 {
-	t_ps_list	*temp;
-	int		count;
+	int	count;
 
 	count = 0;
-	temp = *a;
-	while (temp->next)
-		temp = temp->next;
-	while (temp && temp->n < piv)
+	if (!(*b && (*b)->next))
+		return (0);
+	if (size == 0)
 	{
-		temp = temp->prev;
-		rra(a, result, 1);
-		if ((*a)->n == find_min(a, ft_list_count(a)))
+		if ((*b)->n < max)
+			rb(b, result, 1);
+		else if ((*b)->n < (*b)->next->n)
+			sb(b, result, 1);
+	}
+	else
+	{
+		if ((*b)->n > max)
 		{
-			pb(a, b, result, 1);
+			rb(b, result, 1);
 			count++;
 		}
+		else if ((*b)->n < (*b)->next->n)
+			sb(b, result, 1);
 	}
-	if ((*a)->n == find_max(a, ft_list_count(a)))
-		ra(a, result, 1);
+	return (count);
+}
 
+int	loop_a(t_ps_list **a, t_result **result, int pivot, int len)
+{
+	int	head;
+	int	tail;
+	int	max;
+	int	count;
+
+	max = find_max(a, len);
+	head = loop_head_a(a, pivot);
+	tail = loop_tail_a(a, pivot, max);
+	if (tail == -2)
+		tail = head * 2;
+	if (head <= tail)
+	{
+		count = head;
+		while (head--)
+			ra(a, result, 1);
+	}
+	else
+	{
+		count = tail;
+		while (tail--)
+			rra(a, result, 1);
+	}
 	return (count);
 }
 
 void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 {
-	int	pivot;
-	int	count;
-	int	number;
-	int	size;
-	//int	piv_a; //
-	int	piv_b;
-	int	size_b;
-	int	count_b;
-	//int	flag;
+	int	size[2];
+	int	org_size;
+	int	pivot[2];
+	int	count[2];
 
-	count = 0;
-	count_b = 0;
-	size = ft_list_count(a);
-	size_b = ft_list_count(b);
-	//flag = 0;
-	number = len;
-	pivot = choose_pivot(a, len);
-	piv_b = pivot_b(a, len);
-	//piv_a = pivot_a(a, len);
-	if (number == size)
-		len -= split_optim_a(a, b, result, pivot);
-	while (len != ((number / 2) + (number % 2)))
+	count[0] = 0;
+	count[1] = 0;
+	size[0] = ft_list_count(a);
+	size[1] = ft_list_count(b);
+	org_size = len;
+	pivot[0] = choose_pivot(a, len);
+	pivot[1] = pivot_b(a, len);
+	while (len != ((org_size / 2) + (org_size % 2)))
 	{
-		if ((*a)->n < pivot && len--)
-		{
-			/*if ((len - 1) > 0 && (*a)->n > (*a)->next->n)
-			{
-				sa(a, result, 1);
-				pb(a, b, result, 1);
-				len--;
-			}*/
-			//not sure about loop above
-			pb(a, b, result, 1);
-			if (size_b == 0 && (*b)->n < piv_b)
-			{
-				if ((number - len) == 3 && (*b)->n > (*b)->next->next->n)
-					sb(b, result, 1);
-				else
-					rb(b, result, 1);
-			}
-			else if (size_b != 0 && (*b)->n > piv_b)
-			{
-				rb(b, result, 1);
-				count_b++;
-			}
-			else
-				smart_swap_b(b, result, len, number);
-			
-			//if ((*b)->next && (*b)->n < (*b)->next->n)
-			//	sb(a, result, 1);
-			//if (len - 1 > 0 && )
-			//flag = 0;
-			/*if ((number - len) == ft_list_count(b) && (*b)->n < last_n(b))
-			{	
-				rb(b, result, 1);
-				if ((*b)->n < (*b)->next->n)
-					sb(b , result, 1);
-			}*/			
-		}
-		/*else if ((len + count) == ft_list_count(a) && (*a)->n > last_n(a) && flag == 0)
-		{
-			rra(a, result, 1);
-			sa(a, result, 1);
-			flag = 1;
-		}*/
-		else if (number == size && smart_rotate_a(a, result, pivot))
-			len -= split_optim_a(a, b, result, pivot);
-		else
-		{
-			//presort a
-
-			ra(a, result, 1);
-			count++;
-		}
+		count[0] += loop_a(a, result, pivot[0], len);
+		//if ((*a)->n < pivot && len--)
+		pb(a, b, result, 1);
+		count[1] += insert_b(b, result, pivot[1], size[1]);
+		len--;
 	}
-	while ((((number / 2) + (number % 2)) != ft_list_count(a) && count) || (size_b != 0 && count_b))
-	{	
-		if (count > 0)
-		{
-			rra(a, result, 1);
-			count--;
-		}
-		if (count_b > 0)
-		{
-			rrb(b, result, 1);
-			count_b--;
-		}
-	}
-	
-}
-
-void	sort_a_aux(t_ps_list **a, t_ps_list **b, t_result **result, int len)
-{
-	while (len != 3 || \
-		!((*a)->n < (*a)->next->n && (*a)->next->n < (*a)->next->next->n))
-	{
-		if (len == 3 && (*a)->n > (*a)->next->n && \
-			(*a)->next->next->n)
-			sa(a, result, 1);
-		else if (len == 3 && !((*a)->next->next->n > (*a)->n \
-			&& (*a)->next->next->n > (*a)->next->n))
-		{
-			pb(a, b, result, 1);
-			len--;
-		}
-		else if ((*a)->n > (*a)->next->n)
-			sa(a, result, 1);
-		else if (len++)
-			pa(a, b, result, 1);
-	}
-}
-
-void	sort_three_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
-{
-	if (len <= 3 && ft_list_count(a) <= 3)
-		deal_three(a, result, len);
-	else if (len == 2)
-	{
-		if ((*a)->n > (*a)->next->n)
-			sa(a, result, 1);
-	}
-	else if (len == 3)
-		sort_a_aux(a, b, result, len);
+	if (((org_size / 2) + (org_size % 2)) == ft_list_count(a))
+		count[0] = 0;
+	else if (size[1] == 0)
+		count[1] = 0;
+	adjust_rotate_a(a, b, result, count);
 }
 
 void	quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 {
-	int	number;
-
-	number = len;
-	if (len <= 3)
+	if (len <=3)
 	{
 		sort_three_a(a, b, result, len);
 		return ;
 	}
-	/*else if (len <= 5 && len == ft_list_count(a))
-	{
-		deal_five(a, &result);
-		return ;
-	}*/
 	split_a(a, b, result, len);
-	quick_sort_a(a, b, result, ((number / 2) + (number % 2)));
-	quick_sort_b(a, b, result, (number / 2));
+	quick_sort_a(a, b, result, ((len / 2) + (len % 2)));
+	quick_sort_b(a, b, result, (len / 2));
 }

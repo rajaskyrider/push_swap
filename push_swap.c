@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/11 16:42:11 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/12 19:36:47 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 #include "post_opt.c"
 #include "utils_opt.c"
 #include "rank.c"
+#include "quick_sort_aux.c"
 #include "./libft/libft.h"
 #include "./libft/ft_printf.h"
 #include "./libft/ft_printf.c"
@@ -107,7 +108,7 @@ int	main(int argc, char **argv)
 	//char *str[] = {"0", "9 6 4 7 8 1 2 5 3 10", NULL};
 	//char *str[] = {"0", "10 9 8 7 6", NULL};
 
-	//aprint_a(&a);rgv = str;
+	//argv = str;
 	//argc = 2;
 
 	if (argc < 2)

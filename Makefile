@@ -6,7 +6,7 @@
 #    By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/04 16:07:00 by rpandipe          #+#    #+#              #
-#    Updated: 2024/04/11 16:21:10 by rpandipe         ###   ########.fr        #
+#    Updated: 2024/04/12 19:38:01 by rpandipe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS		= push_swap.c handle_input.c bubble_sort.c deal_three.c \
 		  deal_five.c swap.c push.c rotate.c reverse_rotate.c \
 		  utils.c utils_print.c utils_sort.c quick_sort_a.c \
 		  quick_sort_b.c quick_sort_utils.c post_opt.c utils_opt.c \
-		  rank.c
+		  rank.c quick_sort_aux.c
 SRCSB		= checker.c
 OBJS		= $(SRCS:.c=.o)
 OBJSB		= $(SRCSB:.c=.o)

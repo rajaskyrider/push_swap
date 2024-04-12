@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/11 16:17:40 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/12 19:18:47 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,12 @@ void		smart_swap_b(t_ps_list **b, t_result **result, int len, int number);
 int			pivot_b(t_ps_list **lst, int len);
 int			pivot_a(t_ps_list **lst, int len);
 void		rank(t_ps_list **a);
+void		sort_three_a(t_ps_list **a, t_ps_list **b, \
+						 t_result **result, int len);
+void		sort_three_b(t_ps_list **a, t_ps_list **b, \
+							t_result **result, int len);
+int			loop_head_a(t_ps_list **a, int pivot);
+int			loop_tail_a(t_ps_list **a, int pivot, int max);
+void		adjust_rotate_a(t_ps_list **a, t_ps_list **b, t_result **res, int c[2]);
 
 #endif
