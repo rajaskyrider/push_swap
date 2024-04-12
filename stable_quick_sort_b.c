@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bkp_quick_sort_b.c                                 :+:      :+:    :+:   */
+/*   stable_quick_sort_b.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:53:34 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/12 19:19:31 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/12 19:54:20 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,42 +34,8 @@ int	split_optim_b(t_ps_list **a, t_ps_list **b, t_result **result, int piv)
 	return (count);
 }
 
-void	sort_b_aux(t_ps_list **a, t_ps_list **b, t_result **result, int len)
-{
-	while (len || \
-		!((*a)->n < (*a)->next->n && (*a)->next->n < (*a)->next->next->n))
-	{
-		if (len == 1 && (*a)->n > (*a)->next->n)
-			sa(a, result, 1);
-		else if (len == 1 || (len >= 2 && (*b)->n > (*b)->next->n) || \
-			(len == 3 && (*b)->n > (*b)->next->next->n))
-		{
-			pa(a, b, result, 1);
-			len--;
-		}
-		else
-			sb(b, result, 1);
-	}
-}
 
-void	sort_three_b(t_ps_list **a, t_ps_list **b, t_result **result, int len)
-{
-	if (len == 1)
-		pa(a, b, result, 1);
-	else if (len == 2)
-	{
-		if ((*b)->n < (*b)->next->n)
-			sb(b, result, 1);
-		while (len--)
-			pa(a, b, result, 1);
-	}
-	else if (len == 3)
-	{
-		sort_b_aux(a, b, result, len);
-	}
-}
-
-void	quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len)
+void	st_quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 {
 	int	pivot;
 	int	count;
@@ -124,6 +90,6 @@ void	quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 			count_a--;
 		}
 	}
-	quick_sort_a(a, b, result, ((number / 2) + (number % 2)));
-	quick_sort_b(a, b, result, (number / 2));
+	st_quick_sort_a(a, b, result, ((number / 2) + (number % 2)));
+	st_quick_sort_b(a, b, result, (number / 2));
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bkp_quick_sort_a.c                                 :+:      :+:    :+:   */
+/*   stable_quick_sort_a.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/12 18:43:31 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/12 19:54:04 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	split_optim_a(t_ps_list **a, t_ps_list **b, t_result **result, int piv)
 	return (count);
 }
 
-void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
+void	split_a_three(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 {
 	int	pivot;
 	int	count;
@@ -149,41 +149,7 @@ void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 	
 }
 
-void	sort_a_aux(t_ps_list **a, t_ps_list **b, t_result **result, int len)
-{
-	while (len != 3 || \
-		!((*a)->n < (*a)->next->n && (*a)->next->n < (*a)->next->next->n))
-	{
-		if (len == 3 && (*a)->n > (*a)->next->n && \
-			(*a)->next->next->n)
-			sa(a, result, 1);
-		else if (len == 3 && !((*a)->next->next->n > (*a)->n \
-			&& (*a)->next->next->n > (*a)->next->n))
-		{
-			pb(a, b, result, 1);
-			len--;
-		}
-		else if ((*a)->n > (*a)->next->n)
-			sa(a, result, 1);
-		else if (len++)
-			pa(a, b, result, 1);
-	}
-}
-
-void	sort_three_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
-{
-	if (len <= 3 && ft_list_count(a) <= 3)
-		deal_three(a, result, len);
-	else if (len == 2)
-	{
-		if ((*a)->n > (*a)->next->n)
-			sa(a, result, 1);
-	}
-	else if (len == 3)
-		sort_a_aux(a, b, result, len);
-}
-
-void	quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
+void	st_quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 {
 	int	number;
 
@@ -198,7 +164,7 @@ void	quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 		deal_five(a, &result);
 		return ;
 	}*/
-	split_a(a, b, result, len);
-	quick_sort_a(a, b, result, ((number / 2) + (number % 2)));
-	quick_sort_b(a, b, result, (number / 2));
+	split_a_three(a, b, result, len);
+	st_quick_sort_a(a, b, result, ((number / 2) + (number % 2)));
+	st_quick_sort_b(a, b, result, (number / 2));
 }

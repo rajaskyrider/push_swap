@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/12 19:18:47 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/12 20:00:05 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,8 @@ void		sort_three_b(t_ps_list **a, t_ps_list **b, \
 int			loop_head_a(t_ps_list **a, int pivot);
 int			loop_tail_a(t_ps_list **a, int pivot, int max);
 void		adjust_rotate_a(t_ps_list **a, t_ps_list **b, t_result **res, int c[2]);
+void		st_quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len);
+void		st_quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len);
+int			count_moves(t_result **result);
 
 #endif
