@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/12 20:00:05 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/13 10:17:26 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ typedef struct s_result
 	char			*op;
 	struct s_result	*next;
 }				t_result;
+
+typedef struct s_cost
+{
+	int				a_n;
+	int				b_n;
+	int				moves_a;
+	int				moves_b;
+	int				cost;
+	struct s_cost	*next;
+}				t_cost;
 
 void		sa(t_ps_list **a, t_result **result, int id);
 void		sb(t_ps_list **b, t_result **result, int id);
@@ -93,5 +103,8 @@ void		adjust_rotate_a(t_ps_list **a, t_ps_list **b, t_result **res, int c[2]);
 void		st_quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len);
 void		st_quick_sort_b(t_ps_list **a, t_ps_list **b, t_result **result, int len);
 int			count_moves(t_result **result);
+t_cost		*create_cost(int a, int b);
+void		addcost(t_cost **cost, int a, int b);
+void		free_cost(t_cost **lst);
 
 #endif

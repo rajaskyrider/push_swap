@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/12 20:01:41 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/12 20:05:39 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,13 @@ void	check_count(t_ps_list **a, t_ps_list **b, t_result **result, int size)
 	if (size == 100 && count_moves(result) >= 700)
 	{
 		free_result(result);
-		result = NULL;
+		*result = NULL;
 		st_quick_sort_a(a, b, result, size);
 	}
 	else if (size == 500 && count_moves(result) >= 5200)
 	{
 		free_result(result);
-		result = NULL;
+		*result = NULL;
 		st_quick_sort_a(a, b, result, size);
 	}
 

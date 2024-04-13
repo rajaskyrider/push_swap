@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:45:22 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/12 19:59:50 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/12 20:05:09 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,5 @@ int	count_moves(t_result **result)
 		count++;
 		temp = temp->next;
 	}
+	return (count);
 }
