@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:56:08 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/11 11:34:36 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/10 23:51:45 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,18 +139,4 @@ int	find_last(t_ps_list **lst)
 	while (temp->next)
 		temp = temp->next;
 	return(temp->n);
-}
-
-t_bool	cont_split(t_ps_list **a, int piv_a)
-{
-	t_ps_list	*temp;
-
-	temp = *a;
-	while(temp)
-	{
-		if (temp->n > piv_a)
-			return (true);
-		temp = temp->next;
-	}
-	return (false);
 }

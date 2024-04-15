@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_print.c                                      :+:      :+:    :+:   */
+/*   rank.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 14:45:22 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/09 10:48:59 by rpandipe         ###   ########.fr       */
+/*   Created: 2024/04/11 16:13:20 by rpandipe          #+#    #+#             */
+/*   Updated: 2024/04/11 16:41:16 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_a(t_ps_list **a)
+void	rank(t_ps_list **a)
 {
 	t_ps_list	*temp;
+	t_ps_list	*del;
+	t_ps_list	*ranker;
+	int			count;
 
-	temp = *a;
-	while (temp)
+	temp = copylist(a);
+	del = temp;
+	ranker = *a;
+	while (ranker)
 	{
-		ft_printf("%d\n", temp->n);
-		if (temp->next == NULL)
-			break ;
-		temp = temp->next;
+		count = 1;
+		temp = del;
+		while (temp)
+		{
+			if (ranker->n > temp->n)
+				count++;
+			temp = temp->next;
+		}
+		ranker->n = count;
+		ranker = ranker->next;
 	}
-}
-
-void	print_result(t_result *result)
-{
-	while (result)
-	{
-		if (result->id == 1 || result->id == 42)
-			ft_printf("%s\n", result->op);
-		result = result->next;
-	}
-}
-
-void	print_error(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
+	free_struct(&del);
 }

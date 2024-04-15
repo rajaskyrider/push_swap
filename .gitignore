@@ -1,2 +1,3 @@
 .vscode
 push_swap_tester
+bubble_sort.c checker.c deal_five.c deal_three.c handle_input.c post_opt.c push.c push_swap.c quick_sort_a.c quick_sort_aux.c quick_sort_b.c quick_sort_utils.c rank.c reverse_rotate.c rotate.c stable_quick_sort_a.c stable_quick_sort_b.c swap.c utils.c utils_opt.c utils_print.c utils_sort.c

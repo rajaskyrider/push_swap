@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:01:05 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/14 22:52:51 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/14 19:52:29 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@
 #include "post_opt.c"
 #include "utils_opt.c"
 #include "rank.c"
+#include "quick_sort_aux.c"
 #include "insertion_sort.c"
-#include "utils_cost.c"
 #include "utils_insert.c"
+#include "utils_cost.c"
 #include "./libft/libft.h"
 #include "./libft/ft_printf.h"
 #include "./libft/ft_printf.c"
@@ -66,82 +67,52 @@
 #include "./libft/ft_atoi.c"
 */
 
-void	count_result(t_result **result1, t_result **result2, int count[2])
+/*void	check_count(t_ps_list **a, t_ps_list **b, t_result **result, int size)
 {
-	t_result	*temp1;
-	t_result	*temp2;
-
-	sort_opt(result1);
-	sort_opt(result2);
-	temp1 = *result1;
-	temp2 = *result2;
-	count[0]= 0;
-	count[1]= 0;
-	while (temp1)
+	if (size == 100 && count_moves(result) >= 700)
 	{
-		count[0]++;
-		temp1 = temp1->next;
+		free_result(result);
+		*result = NULL;
+		st_quick_sort_a(a, b, result, size);
 	}
-	while (temp2)
+	else if (size == 500 && count_moves(result) >= 5200)
 	{
-		count[1]++;
-		temp2 = temp2->next;
+		free_result(result);
+		*result = NULL;
+		st_quick_sort_a(a, b, result, size);
 	}
-}
 
-void	choose_sorter(t_ps_list **a, t_ps_list **b, t_result **result, int size)
-{
-	t_ps_list	*dup_a;
-	t_ps_list	*dup_b;
-	t_result	*result1;
-	t_result	*result2;
-	int		count[2];
+}*/
 
-	dup_a = copylist(a);
-	dup_b = NULL;
-	result1 = NULL;
-	result2 = NULL;
-	insertion_sort(a, b, &result1, size);
-	quick_sort_a(&dup_a, &dup_b, &result2, size);
-	count_result(&result1, &result2, count);
-	if (count[0] < count[1])
-	{
-		*result = result1;
-		free_result(&result2);
-	}
-	else
-	{
-		*result = result2;
-		free_result(&result1);
-	}
-	if (dup_b)
-		free_struct(&dup_b);
-	free_struct(&dup_a);
-}
-
-void	sorting_selector(t_ps_list **lst)
+void	sorting_selector(t_ps_list **a)
 {
 	t_result	*result;
 	t_ps_list	*b;
+	t_ps_list	*lst;
 	int			size;
 
+	lst = copylist(a);
 	result = NULL;
 	b = NULL;
-	if (issorted(lst))
+	if (issorted(&lst))
 		return ;
-	size = ft_list_count(lst);
+	size = ft_list_count(&lst);
 	if (size <= 3)
-		deal_three(lst, &result, size);
+		deal_three(&lst, &result, size);
 	else if (size <= 5)
-		deal_five(lst, &result);
-	else 
-		choose_sorter(lst, &b, &result, size);
+		deal_five(&lst, &result);
+	else
+		//quick_sort_a(&lst, &b, &result, size);
+		insertion_sort(a, &b, &result, size);
 	sort_opt(&result);
+	//check_count(a, &b, &result, size);
 	print_result(result);
+	//ft_printf("%d\n", count_moves(&result));
 	free_result(&result);
 	if (b)
 		free_struct(&b);
 	b = NULL;
+	free_struct(&lst);
 }
 
 int	main(int argc, char **argv)
@@ -162,7 +133,7 @@ int	main(int argc, char **argv)
 	//6 2 10 8 7 3 5 9 1 4
 	//char *str[] = {"0", "74 30 54 27 22 17 1 62 86 9 39 90 55 51 45 68 81 96 85 79 19 6 87 66 82 14 57 15 88 92 93 32 50 91 78 71 53 4 98 12 75 21 20 58 42 16 67 23 89 80 69 56 5 3 41 97 77 13 61 11 29 73 7 99 25 34 26 18 70 83 46 52 59 33 8 36 0 65 24 49 35 43 48 72 44 95 37 64 63 40 2 31 60 38 94 76 84 47 28 10", NULL};
 	//char *str[] = {"0", "9 6 4 7 8 1 2 5 3 10", NULL};
-	//char *str[] = {"0", "58 39 77 31 87 12 8 43 38 1 30 10 33 79 97 94 85 48 9 4 63 18 7 69 92 41 17 89 16 46 37 91 53 55 15 61 40 72 35 49 66 56 51 19 98 59 28 88 68 65 42 36 81 52 96 25 67 71 99 47 80 23 5 54 0 45 50 76 70 90 83 24 27 11 82 78 14 34 57 32 20 26 21 6 75 3 44 64 74 22 2 29 13 62 93 60 73 95 84 86", NULL};
+	//char *str[] = {"0", "10 9 8 7 6", NULL};
 
 	//argv = str;
 	//argc = 2;

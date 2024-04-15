@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:45:22 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/09 10:48:59 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/12 20:05:09 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,19 @@ void	print_error(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
+}
+
+int	count_moves(t_result **result)
+{
+	t_result	*temp;
+	int			count;
+	
+	temp = *result;
+	count = 0;
+	while (temp)
+	{
+		count++;
+		temp = temp->next;
+	}
+	return (count);
 }
