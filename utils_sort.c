@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:47:18 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/09 00:19:55 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/15 15:07:17 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	last_n(t_ps_list **b)
 	t_ps_list	*temp;
 
 	temp = *b;
-	while(temp->next)
+	while (temp->next)
 		temp = temp->next;
 	return (temp->n);
 }

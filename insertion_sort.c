@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   insertion_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 09:35:07 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/14 21:22:54 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/15 09:22:20 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	find_matching(t_ps_list *a, int b)
 {
-	int match;
-	int min;
+	int	match;
+	int	min;
 	int	diff;
 
 	min = 2147483647;
@@ -63,8 +63,8 @@ void	addmoves(t_cost **cost, t_ps_list **a, t_ps_list **b)
 
 void	addreversemoves(t_cost **cost, t_ps_list **a, t_ps_list **b)
 {
-	int		min_a;
-	int		min_b;
+	int			min_a;
+	int			min_b;
 	t_cost		*temp;
 
 	temp = *cost;
@@ -106,8 +106,8 @@ void	find_cost(t_ps_list **a, t_ps_list **b, t_cost **cost)
 void	insertion_sort(t_ps_list **a, t_ps_list **b, t_result **result, int n)
 {
 	t_cost		*cost;
-	int		min;
-	
+	int			min;
+
 	cost = NULL;
 	insert_five(a, b, result, n);
 	deal_five(a, result);

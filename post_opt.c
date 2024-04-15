@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   post_opt.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 21:07:51 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/11 10:48:54 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/15 09:26:39 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 void	merge_node(t_result **result, t_result **node, char *op)
 {
@@ -23,7 +23,7 @@ void	merge_node(t_result **result, t_result **node, char *op)
 	if (temp == (*node))
 		head = NULL;
 	else
-	{	
+	{
 		while (temp->next && temp->next != (*node))
 			temp = temp->next;
 		head = temp;
@@ -33,31 +33,7 @@ void	merge_node(t_result **result, t_result **node, char *op)
 		head->next = tail;
 	temp = (*node);
 	(*node) = (*node)->next;
-	free(temp);	
-}
-
-void	purge_node(t_result **result, t_result **node)
-{
-	t_result	*head;
-	t_result	*tail;
-	t_result	*temp;
-
-	temp = *result;
-	tail = (*node)->next->next;
-	if (temp == (*node))
-		head = NULL;
-	else
-	{	
-		while (temp->next && temp->next != (*node))
-			temp = temp->next;
-		head = temp;
-	}
-	if (head)
-		head->next = tail;
-	temp = (*node);
-	(*node) = head;
-	free(temp->next);
-	free(temp);
+	free (temp);
 }
 
 void	result_merge(char *op1, char *op2, char *op3, t_result **result)
@@ -65,7 +41,7 @@ void	result_merge(char *op1, char *op2, char *op3, t_result **result)
 	t_result	*temp;
 
 	temp = *result;
-	while(temp)
+	while (temp)
 	{
 		if (temp->next && ft_strncmp(temp->op, op1, ft_strlen(op1)) == 0 \
 			&& ft_strncmp(temp->next->op, op2, ft_strlen(op2)) == 0)
@@ -74,41 +50,11 @@ void	result_merge(char *op1, char *op2, char *op3, t_result **result)
 			temp = temp->next;
 	}
 	temp = *result;
-	while(temp)
+	while (temp)
 	{
-		if (temp->next && ft_strncmp(temp->op, op2, ft_strlen(op2)) == 0\
-			&& ft_strncmp(temp->next->op, op1, ft_strlen(op1)) == 0)
-			merge_node(result, &temp, op3);
-		else
-			temp = temp->next;
-	}
-}
-
-void	result_purge(char *op1, char *op2, t_result **result)
-{
-	t_result	*temp;
-
-	temp = *result;
-	while(temp)
-	{
-		if (temp->next && ft_strncmp(temp->op, op1, ft_strlen(op1)) == 0 \
-			&& ft_strncmp(temp->next->op, op2, ft_strlen(op2)) == 0)
-			purge_node(result, &temp);
-		else
-			temp = temp->next;
-	}
-	temp = *result;
-	while(temp)
-	{
-		if (temp->next && ft_strncmp(temp->op, "rrr", 3) == 0 && ft_strncmp(temp->next->op, "rra", 3) == 0)
-		{
-			ft_strlen("rrr");
-			ft_strncmp(temp->op, "rrr", 3);
-			ft_strncmp(temp->next->op, "rra", 3);
-		}
 		if (temp->next && ft_strncmp(temp->op, op2, ft_strlen(op2)) == 0 \
 			&& ft_strncmp(temp->next->op, op1, ft_strlen(op1)) == 0)
-			purge_node(result, &temp);
+			merge_node(result, &temp, op3);
 		else
 			temp = temp->next;
 	}

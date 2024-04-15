@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_insert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 09:56:21 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/14 19:49:35 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/15 15:14:26 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ void	free_cost(t_cost **lst)
 void	min_cost(t_ps_list **a, t_ps_list **b, t_result **result, t_cost **cost)
 {
 	t_cost	*temp;
-	int	min;
-	int	moves[2];
-	int	flag[2];
+	int		min;
+	int		moves[2];
+	int		flag[2];
 
 	temp = *cost;
 	min = 2147483647;
@@ -85,19 +85,7 @@ void	min_cost(t_ps_list **a, t_ps_list **b, t_result **result, t_cost **cost)
 		}
 		temp = temp->next;
 	}
-	while (moves[0] > 0 || moves[1] > 0)
-	{
-		if (flag[0] == 0 && moves[0] > 0)
-			ra(a, result, 1);
-		else if (flag[0] == 1 && moves[0] > 0)
-			rra(a, result, 1);
-		if (flag[1] == 0 && moves[1] > 0)
-			rb(b, result, 1);
-		else if (flag[1] == 1 && moves[1] > 0)
-			rrb(b, result, 1);
-		moves[0]--;
-		moves[1]--;
-	}
+	opt_rot_cost(a, b, result, (int []){moves[0], moves[1], flag[0], flag[1]});
 }
 
 void	insert_five(t_ps_list **a, t_ps_list **b, t_result **result, int n)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:59:49 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/12 23:48:26 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/15 11:52:59 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	split_optim_a(t_ps_list **a, t_ps_list **b, t_result **result, int piv)
 {
 	t_ps_list	*temp;
-	int		count;
+	int			count;
 
 	count = 0;
 	temp = *a;
@@ -33,105 +33,36 @@ int	split_optim_a(t_ps_list **a, t_ps_list **b, t_result **result, int piv)
 	}
 	if ((*a)->n == find_max(a, ft_list_count(a)))
 		ra(a, result, 1);
-
 	return (count);
 }
 
 void	split_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 {
-	int	pivot;
-	int	count;
+	int	pivot[2];
+	int	count[2];
 	int	number;
-	int	size;
-	//int	piv_a; //
-	int	piv_b;
-	int	size_b;
-	int	count_b;
-	//int	flag;
+	int	size[2];
 
-	count = 0;
-	count_b = 0;
-	size = ft_list_count(a);
-	size_b = ft_list_count(b);
-	//flag = 0;
+	set_initials(count, size, a, b);
 	number = len;
-	pivot = choose_pivot(a, len);
-	piv_b = pivot_b(a, len);
-	//piv_a = pivot_a(a, len);
-	if (number == size)
-		len -= split_optim_a(a, b, result, pivot);
+	pivot[0] = choose_pivot(a, len);
+	pivot[1] = pivot_b(a, len);
+	if (number == size[0])
+		len -= split_optim_a(a, b, result, pivot[0]);
 	while (len != ((number / 2) + (number % 2)))
 	{
-		if ((*a)->n < pivot && len--)
+		if ((*a)->n < pivot[0] && len--)
 		{
-			/*if ((len - 1) > 0 && (*a)->n > (*a)->next->n)
-			{
-				sa(a, result, 1);
-				pb(a, b, result, 1);
-				len--;
-			}*/
-			//not sure about loop above
 			pb(a, b, result, 1);
-			if (size_b == 0 && (*b)->n < piv_b)
-			{
-				if ((number - len) == 3 && (*b)->n > (*b)->next->next->n)
-					sb(b, result, 1);
-				else
-					rb(b, result, 1);
-			}
-			else if (size_b != 0 && (*b)->n > piv_b)
-			{
-				rb(b, result, 1);
-				count_b++;
-			}
-			else
-				smart_swap_b(b, result, len, number);
-			
-			//if ((*b)->next && (*b)->n < (*b)->next->n)
-			//	sb(a, result, 1);
-			//if (len - 1 > 0 && )
-			//flag = 0;
-			/*if ((number - len) == ft_list_count(b) && (*b)->n < last_n(b))
-			{	
-				rb(b, result, 1);
-				if ((*b)->n < (*b)->next->n)
-					sb(b , result, 1);
-			}*/			
+			count[1] += br(b, result, (int []){size[1], pivot[1], number, len});
 		}
-		/*else if ((len + count) == ft_list_count(a) && (*a)->n > last_n(a) && flag == 0)
-		{
-			rra(a, result, 1);
-			sa(a, result, 1);
-			flag = 1;
-		}*/
-		else if (number == size && smart_rotate_a(a, result, pivot))
-			len -= split_optim_a(a, b, result, pivot);
+		else if (number == size[0] && smart_rotate_a(a, result, pivot[0]))
+			len -= split_optim_a(a, b, result, pivot[0]);
 		else
-		{
-			//presort a
-
-			ra(a, result, 1);
-			count++;
-		}
+			count[0] += case_a_alt(a, result);
 	}
-	while ((((number / 2) + (number % 2)) != ft_list_count(a) && count) || (size_b != 0 && count_b))
-	{	
-		if (count > 0)
-		{
-			rra(a, result, 1);
-			count--;
-		}
-		if (count_b > 0)
-		{
-			rrb(b, result, 1);
-			count_b--;
-		}
-		//if (((*a)->n > (*a)->next->n))
-		//	sa(a, result, 1);
-		//if ((*b)->n < (*b)->next->n)
-		//	sb(b, result, 1);
-	}
-	
+	if (((number / 2) + (number % 2)) != ft_list_count(a) || size[1] != 0)
+		fix_rotate(a, b, result, count);
 }
 
 void	sort_a_aux(t_ps_list **a, t_ps_list **b, t_result **result, int len)
@@ -178,11 +109,6 @@ void	quick_sort_a(t_ps_list **a, t_ps_list **b, t_result **result, int len)
 		sort_three_a(a, b, result, len);
 		return ;
 	}
-	/*else if (len <= 5 && len == ft_list_count(a))
-	{
-		deal_five(a, &result);
-		return ;
-	}*/
 	split_a(a, b, result, len);
 	quick_sort_a(a, b, result, ((number / 2) + (number % 2)));
 	quick_sort_b(a, b, result, (number / 2));

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:13 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/14 21:24:53 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/15 15:16:20 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include "./libft/libft.h"
 
-typedef enum e_bool{
+typedef enum e_bool
+{
 	false,
 	true
 }	t_bool;
@@ -98,11 +99,32 @@ void		rank(t_ps_list **a);
 t_cost		*create_cost(int a, int b);
 void		addcost(t_cost **cost, int a, int b);
 void		free_cost(t_cost **lst);
-void		min_cost(t_ps_list **a, t_ps_list **b, t_result **resutl, t_cost **cost);
-void		insertion_sort(t_ps_list **a, t_ps_list **b, t_result **result, int n);
+void		min_cost(t_ps_list **a, t_ps_list **b, \
+					t_result **resutl, t_cost **cost);
+void		insertion_sort(t_ps_list **a, t_ps_list **b, \
+							t_result **result, int n);
 void		insert_five(t_ps_list **a, t_ps_list **b, t_result **result, int n);
 int			cost_reverse_a(t_ps_list **a, t_cost **cost);
 int			cost_reverse_b(t_ps_list **b, t_cost **cost);
 void		loop_min(t_ps_list **a, t_result **result, int min);
+void		result_purge(char *op1, char *op2, t_result **result);
+void		set_initials(int count[2], int size[2], \
+						t_ps_list **a, t_ps_list **b);
+void		case_b(t_ps_list **b, t_result **result, int number, int len);
+int			case_a_alt(t_ps_list **a, t_result **result);
+void		fix_rotate(t_ps_list **a, t_ps_list **b, \
+					t_result **result, int count[2]);
+int			br(t_ps_list **b, t_result **result, int mix[4]);
+int			case_b_alt(t_ps_list **b, t_result **result);
+void		set_initials_b(int pivot[2], int count[2], int len, t_ps_list **b);
+void		fix_rotate_b(t_ps_list **a, t_ps_list **b, \
+					t_result **result, int count[2]);
+t_bool		cont_split(t_ps_list **a, int piv_a);
+int			find_last(t_ps_list **lst);
+int			pivot_a(t_ps_list **lst, int len);
+int			pivot_b(t_ps_list **lst, int len);
+void		smart_swap_b(t_ps_list **b, t_result **result, int len, int number);
+void		opt_rot_cost(t_ps_list **a, t_ps_list **b, \
+							t_result **result, int mix[4]);
 
 #endif

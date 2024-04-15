@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_cost.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+        */
+/*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 17:09:15 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/14 19:37:20 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/15 15:02:47 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	cost_reverse_a(t_ps_list **a, t_cost **cost)
 {
 	t_ps_list	*temp;
 	t_cost		*c;
-	int		count;
+	int			count;
 
 	temp = *a;
 	c = *cost;
@@ -28,7 +28,7 @@ int	cost_reverse_a(t_ps_list **a, t_cost **cost)
 	while (temp->n != c->a_n)
 	{
 		count++;
-		temp =temp->prev;
+		temp = temp->prev;
 	}
 	return (count);
 }
@@ -37,7 +37,7 @@ int	cost_reverse_b(t_ps_list **b, t_cost **cost)
 {
 	t_ps_list	*temp;
 	t_cost		*c;
-	int		count;
+	int			count;
 
 	temp = *b;
 	c = *cost;
@@ -49,14 +49,14 @@ int	cost_reverse_b(t_ps_list **b, t_cost **cost)
 	while (temp->n != c->b_n)
 	{
 		count++;
-		temp =temp->prev;
+		temp = temp->prev;
 	}
 	return (count);
 }
 
 int	loop_top(t_ps_list **a, int min)
 {
-	int		head;
+	int			head;
 	t_ps_list	*temp;
 
 	head = 0;
@@ -74,7 +74,7 @@ int	loop_top(t_ps_list **a, int min)
 
 int	loop_bottom(t_ps_list **a, int min)
 {
-	int		tail;
+	int			tail;
 	t_ps_list	*temp;
 
 	tail = 1;

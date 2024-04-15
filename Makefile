@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rpandipe <rpandie@student.42luxembourg.    +#+  +:+       +#+         #
+#    By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/04 16:07:00 by rpandipe          #+#    #+#              #
-#    Updated: 2024/04/14 21:25:17 by rpandipe         ###   ########.fr        #
+#    Updated: 2024/04/15 15:17:25 by rpandipe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS		= push_swap.c handle_input.c bubble_sort.c deal_three.c \
 		  utils.c utils_print.c utils_sort.c quick_sort_a.c \
 		  quick_sort_b.c quick_sort_utils.c post_opt.c utils_opt.c \
 		  rank.c insertion_sort.c utils_cost.c \
-		  utils_insert.c
+		  utils_insert.c opt_rotate.c opt_rotateb.c post_purge.c \
+		  utils_opt_misc.c
 SRCSB		= checker.c
 OBJS		= $(SRCS:.c=.o)
 OBJSB		= $(SRCSB:.c=.o)
